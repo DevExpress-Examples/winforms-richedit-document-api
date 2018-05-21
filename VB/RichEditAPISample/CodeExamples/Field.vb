@@ -8,11 +8,11 @@ Imports System.Threading.Tasks
 Namespace RichEditAPISample.CodeExamples
     Friend Class FieldActions
         Private Shared Sub InsertField(ByVal document As Document)
-            '            #Region "#InsertField"
+'            #Region "#InsertField"
             'Start updating the document
             document.BeginUpdate()
 
-            'Insert the DATE field at the caret position
+            'Create a DATE field at the caret position
             document.Fields.Create(document.CaretPosition, "DATE")
             document.Fields.Update()
 
@@ -22,36 +22,36 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ModifyFieldCode(ByVal document As Document)
-            '            #Region "#ModifyFieldCode"
+'            #Region "#ModifyFieldCode"
             document.BeginUpdate()
 
-            'Create the DATE field at the caret position
+            'Create a DATE field at the caret position
             document.Fields.Create(document.CaretPosition, "DATE")
             document.EndUpdate()
             For i As Integer = 0 To document.Fields.Count - 1
                 Dim fieldCode As String = document.GetText(document.Fields(i).CodeRange)
                 If fieldCode = "DATE" Then
-
                     'Retrieve the range obtained by the field code
                     Dim position As DocumentPosition = document.Fields(i).CodeRange.End
 
-                    'Insert the format switch at the end of the retrieved range
+                    'Insert the format switch to the end of the field code range
                     document.InsertText(position, "\@ ""M/d/yyyy h:mm am/pm""")
                 End If
             Next i
+
+            'Update all document fields
             document.Fields.Update()
 '            #End Region ' #ModifyFieldCode
         End Sub
 
         Private Shared Sub CreateFieldFromRange(ByVal document As Document)
-            '            #Region "#CreateFieldFromRange"
+'            #Region "#CreateFieldFromRange"
             document.BeginUpdate()
-
             'Insert the text to the document end
             document.AppendText("SYMBOL 0x54 \f Wingdings \s 24")
             document.EndUpdate()
 
-            'Convert the inserted text to the field
+            'Convert the inserted text to the field 
             document.Fields.Create(document.Paragraphs(0).Range)
             document.Fields.Update()
 '            #End Region ' #CreateFieldFromRange
