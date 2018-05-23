@@ -9,7 +9,7 @@ Namespace RichEditAPISample.CodeExamples
     Friend Class ShapesActions
         Private Shared Sub AddFloatingPicture(ByVal document As Document)
 '            #Region "#AddFloatingPicture"
-            document.AppendText("Line One" & ControlChars.Lf & "Line Two" & ControlChars.Lf & "Line Three")
+            document.AppendText("Line One" & vbLf & "Line Two" & vbLf & "Line Three")
             Dim myPicture As Shape = document.Shapes.InsertPicture(document.CreatePosition(15), System.Drawing.Image.FromFile("beverages.png"))
             myPicture.HorizontalAlignment = ShapeHorizontalAlignment.Center
 '            #End Region ' #AddFloatingPicture
@@ -43,7 +43,7 @@ Namespace RichEditAPISample.CodeExamples
 
         Private Shared Sub AddTextBox(ByVal document As Document)
 '            #Region "#AddTextBox"
-            document.AppendText("Line One" & ControlChars.Lf & "Line Two" & ControlChars.Lf & "Line Three")
+            document.AppendText("Line One" & vbLf & "Line Two" & vbLf & "Line Three")
             Dim myTextBox As Shape = document.Shapes.InsertTextBox(document.CreatePosition(15))
             myTextBox.HorizontalAlignment = ShapeHorizontalAlignment.Center
             ' Specify the text box background color.
