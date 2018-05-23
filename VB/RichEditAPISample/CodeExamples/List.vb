@@ -35,7 +35,7 @@ Namespace RichEditAPISample.CodeExamples
             document.NumberingLists.Add(0)
             document.EndUpdate()
 
-            document.AppendText("Line 1" & ControlChars.Lf & "Line 2" & ControlChars.Lf & "Line 3")
+            document.AppendText("Line 1" & vbLf & "Line 2" & vbLf & "Line 3")
             ' Convert all paragraphs to list items.
             document.BeginUpdate()
             Dim paragraphs As ParagraphCollection = document.Paragraphs
@@ -85,7 +85,7 @@ Namespace RichEditAPISample.CodeExamples
             document.NumberingLists.Add(0)
             document.EndUpdate()
 
-            document.AppendText("Line one" & ControlChars.Lf & "Line two" & ControlChars.Lf & "Line three" & ControlChars.Lf & "Line four")
+            document.AppendText("Line one" & vbLf & "Line two" & vbLf & "Line three" & vbLf & "Line four")
             ' Convert all paragraphs to list items of level 0.
             document.BeginUpdate()
             Dim paragraphs As ParagraphCollection = document.Paragraphs

@@ -11,7 +11,7 @@ Namespace RichEditAPISample.CodeExamples
         Private Shared Sub FormatText(ByVal document As Document)
 '            #Region "#FormatText"
             document.BeginUpdate()
-            document.AppendText("Normal" & ControlChars.Lf & "Formatted" & ControlChars.Lf & "Normal")
+            document.AppendText("Normal" & vbLf & "Formatted" & vbLf & "Normal")
             document.EndUpdate()
             Dim range As DocumentRange = document.Paragraphs(1).Range
             Dim cp As CharacterProperties = document.BeginUpdateCharacters(range)
@@ -40,7 +40,7 @@ Namespace RichEditAPISample.CodeExamples
         Private Shared Sub FormatParagraph(ByVal document As Document)
 '            #Region "#FormatParagraph"
             document.BeginUpdate()
-            document.AppendText("Modified Paragraph" & ControlChars.Lf & "Normal" & ControlChars.Lf & "Normal")
+            document.AppendText("Modified Paragraph" & vbLf & "Normal" & vbLf & "Normal")
             document.EndUpdate()
             Dim pos As DocumentPosition = document.Range.Start
             Dim range As DocumentRange = document.CreateRange(pos, 0)

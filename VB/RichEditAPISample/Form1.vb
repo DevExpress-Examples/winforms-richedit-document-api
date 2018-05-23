@@ -414,10 +414,10 @@ Namespace RichEditAPISample
 
         Private Sub OnExampleEvaluatorQueryEvaluate(ByVal sender As Object, ByVal e As CodeEvaluationEventArgs)
             e.Result = False
-            If codeEditor.RichEditTextChanged Then
+            If codeEditor.RichEditTextChanged Then ' && compileComplete) {
                 Dim span As TimeSpan = Date.Now.Subtract(codeEditor.LastExampleCodeModifiedTime)
 
-                If span < TimeSpan.FromMilliseconds(1000) Then
+                If span < TimeSpan.FromMilliseconds(1000) Then 'CompileTimeIntervalInMilliseconds  1900
                     codeEditor.ResetLastExampleModifiedTime()
                     Return
                 End If
