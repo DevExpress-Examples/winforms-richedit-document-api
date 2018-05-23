@@ -40,8 +40,7 @@ namespace RichEditAPISample
 
             public Form1() {
             InitializeComponent();
-            InitializeRichEditControl();
-
+            
             string examplePath = CodeExampleDemoUtils.GetExamplePath("CodeExamples");
 
             Dictionary<string, FileInfo> examplesCS = CodeExampleDemoUtils.GatherExamplesFromProject(examplePath, ExampleLanguage.Csharp);
@@ -61,13 +60,7 @@ namespace RichEditAPISample
 
             ShowFirstExample();
             this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
-        }
-
-            private void InitializeRichEditControl()
-            {
-                richEditControl.Options.Comments.Visibility = DevExpress.XtraRichEdit.Options.RichEditCommentVisibility.Visible;
-                richEditControl.Options.Comments.ShowAllAuthors = true;
-            }
+        }            
 
         void RearrangeExamples() {
             for(int i = 0; i < examples.Count; i++) {
