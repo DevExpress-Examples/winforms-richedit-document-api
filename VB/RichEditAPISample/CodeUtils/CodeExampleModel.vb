@@ -158,18 +158,20 @@ Namespace RichEditAPISample
             End If
 
             Dim result As New StringBuilder(length * 2)
-            For position As Integer = 0 To length - 2
+            Dim position As Integer = 0
+            Do While position < length - 1
                 Dim current As Char = exampleName.Chars(position)
                 Dim [next] As Char = exampleName.Chars(position + 1)
                 result.Append(current)
                 If Char.IsLower(current) AndAlso Char.IsUpper([next]) Then
                     result.Append(" "c)
                 End If
-            Next position
+                position += 1
+            Loop
             result.Append(exampleName.Chars(length - 1))
             Return result.ToString()
         End Function
-        Public Shared Function GetExamplePath(ByVal exampleFolderName As String) As String
+        Public Shared Function GetExamplePath(ByVal exampleFolderName As String) As String '"CodeExamples"
             Dim examplesPath2 As String = Path.Combine(Directory.GetCurrentDirectory() & "\..\..\", exampleFolderName)
             If Directory.Exists(examplesPath2) Then
                 Return examplesPath2
@@ -246,7 +248,10 @@ Namespace RichEditAPISample
                     Continue For
                 End If
 
-                Dim group As New CodeExampleGroup() With {.Name = mergedExamples(0).HumanReadableGroupName, .Examples = mergedExamples}
+                Dim group As New CodeExampleGroup() With { _
+                    .Name = mergedExamples(0).HumanReadableGroupName, _
+                    .Examples = mergedExamples _
+                }
                 result.Add(group)
             Next sourceCodeItem
             Return result
@@ -314,9 +319,10 @@ Namespace RichEditAPISample
             Dim matches = Regex.Matches(sourceCode, RegexRegionPattern, RegexOptions.Singleline)
 
             For Each match In matches
-                    Dim matchString As String = match.ToString()
-	        		Dim splitter As String = If(matchString.IndexOf(ControlChars.CrLf) >= 0, ControlChars.CrLf, ControlChars.Lf)
-    				Dim lines() As String = match.ToString().Split(New String() { splitter }, StringSplitOptions.None)
+                Dim matchString As String = match.ToString()
+                Dim splitter As String = If(matchString.IndexOf(ControlChars.CrLf) >= 0, ControlChars.CrLf, vbLf)
+                Dim lines() As String = match.ToString().Split(New String() { splitter }, StringSplitOptions.None)
+
                 If lines.Length <= 2 Then
                     Continue For
                 End If
@@ -383,7 +389,7 @@ Namespace RichEditAPISample
 
         Protected Overrides Function DeleteLeadingWhiteSpacesFromSourceCode(ByVal lines() As String) As String()
             Dim result() As String = MyBase.DeleteLeadingWhiteSpacesFromSourceCode(lines)
-            Return CodeExampleDemoUtils.DeleteLeadingWhiteSpaces(result, ControlChars.Tab & ControlChars.Tab & ControlChars.Tab)
+            Return CodeExampleDemoUtils.DeleteLeadingWhiteSpaces(result, vbTab & vbTab & vbTab)
         End Function
         Protected Overrides Function ValidateRegionName(ByVal lines() As String, ByRef regionName As String) As Boolean
             Dim result As Boolean = MyBase.ValidateRegionName(lines, regionName)

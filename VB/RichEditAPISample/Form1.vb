@@ -40,7 +40,7 @@ Namespace RichEditAPISample
 
             Public Sub New()
             InitializeComponent()
-            
+
             Dim examplePath As String = CodeExampleDemoUtils.GetExamplePath("CodeExamples")
 
             Dim examplesCS As Dictionary(Of String, FileInfo) = CodeExampleDemoUtils.GatherExamplesFromProject(examplePath, ExampleLanguage.Csharp)
@@ -60,7 +60,7 @@ Namespace RichEditAPISample
 
             ShowFirstExample()
             AddHandler xtraTabControl1.SelectedPageChanged, AddressOf xtraTabControl1_SelectedPageChanged
-            End Sub           
+            End Sub
 
         Private Sub RearrangeExamples()
             Dim i As Integer = 0
