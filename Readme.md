@@ -1,3 +1,24 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [BookmarksAndHyperlinks.cs](./CS/RichEditAPISample/CodeExamples/BookmarksAndHyperlinks.cs) (VB: [BookmarksAndHyperlinks.vb](./VB/RichEditAPISample/CodeExamples/BookmarksAndHyperlinks.vb))
+* [Comments.cs](./CS/RichEditAPISample/CodeExamples/Comments.cs) (VB: [Comments.vb](./VB/RichEditAPISample/CodeExamples/Comments.vb))
+* [DocumentProperties.cs](./CS/RichEditAPISample/CodeExamples/DocumentProperties.cs) (VB: [DocumentProperties.vb](./VB/RichEditAPISample/CodeExamples/DocumentProperties.vb))
+* [Export.cs](./CS/RichEditAPISample/CodeExamples/Export.cs) (VB: [Export.vb](./VB/RichEditAPISample/CodeExamples/Export.vb))
+* [Field.cs](./CS/RichEditAPISample/CodeExamples/Field.cs) (VB: [Field.vb](./VB/RichEditAPISample/CodeExamples/Field.vb))
+* [Formatting.cs](./CS/RichEditAPISample/CodeExamples/Formatting.cs) (VB: [Formatting.vb](./VB/RichEditAPISample/CodeExamples/Formatting.vb))
+* [HeaderAndFooter.cs](./CS/RichEditAPISample/CodeExamples/HeaderAndFooter.cs) (VB: [HeaderAndFooter.vb](./VB/RichEditAPISample/CodeExamples/HeaderAndFooter.vb))
+* [Import.cs](./CS/RichEditAPISample/CodeExamples/Import.cs) (VB: [Import.vb](./VB/RichEditAPISample/CodeExamples/Import.vb))
+* [InlinePictures.cs](./CS/RichEditAPISample/CodeExamples/InlinePictures.cs) (VB: [InlinePictures.vb](./VB/RichEditAPISample/CodeExamples/InlinePictures.vb))
+* [List.cs](./CS/RichEditAPISample/CodeExamples/List.cs) (VB: [List.vb](./VB/RichEditAPISample/CodeExamples/List.vb))
+* [PageLayout.cs](./CS/RichEditAPISample/CodeExamples/PageLayout.cs) (VB: [PageLayout.vb](./VB/RichEditAPISample/CodeExamples/PageLayout.vb))
+* [Range.cs](./CS/RichEditAPISample/CodeExamples/Range.cs) (VB: [Range.vb](./VB/RichEditAPISample/CodeExamples/Range.vb))
+* [SearchAndReplace.cs](./CS/RichEditAPISample/CodeExamples/SearchAndReplace.cs) (VB: [SearchAndReplace.vb](./VB/RichEditAPISample/CodeExamples/SearchAndReplace.vb))
+* [SelectionCollection.cs](./CS/RichEditAPISample/CodeExamples/SelectionCollection.cs) (VB: [SelectionCollection.vb](./VB/RichEditAPISample/CodeExamples/SelectionCollection.vb))
+* [Shapes.cs](./CS/RichEditAPISample/CodeExamples/Shapes.cs) (VB: [Shapes.vb](./VB/RichEditAPISample/CodeExamples/Shapes.vb))
+* [Styles.cs](./CS/RichEditAPISample/CodeExamples/Styles.cs) (VB: [Styles.vb](./VB/RichEditAPISample/CodeExamples/Styles.vb))
+* [Table.cs](./CS/RichEditAPISample/CodeExamples/Table.cs) (VB: [Table.vb](./VB/RichEditAPISample/CodeExamples/Table.vb))
+<!-- default file list end -->
 # WinForms RichEdit Document API
 
 
