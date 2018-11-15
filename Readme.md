@@ -1,3 +1,8 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [RangeExamples.cs](./CS/RichEditAPISample/CodeExamples/RangeExamples.cs) (VB: [RangeExamples.vb](./VB/RichEditAPISample/CodeExamples/RangeExamples.vb))
+<!-- default file list end -->
 # WinForms RichEdit Document API
 
 
