@@ -1,3 +1,19 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [1 RangeActions.cs](./CS/RichEditAPISample/CodeExamples/1 RangeActions.cs) (VB: [1 RangeActions.vb](./VB/RichEditAPISample/CodeExamples/1 RangeActions.vb))
+* [2 FormattingActions.cs](./CS/RichEditAPISample/CodeExamples/2 FormattingActions.cs) (VB: [2 FormattingActions.vb](./VB/RichEditAPISample/CodeExamples/2 FormattingActions.vb))
+* [3 PageLayoutActions.cs](./CS/RichEditAPISample/CodeExamples/3 PageLayoutActions.cs) (VB: [3 PageLayoutActions.vb](./VB/RichEditAPISample/CodeExamples/3 PageLayoutActions.vb))
+* [4 ListActions.cs](./CS/RichEditAPISample/CodeExamples/4 ListActions.cs) (VB: [4 ListActions.vb](./VB/RichEditAPISample/CodeExamples/4 ListActions.vb))
+* [5 ExportActions.cs](./CS/RichEditAPISample/CodeExamples/5 ExportActions.cs) (VB: [5 ExportActions.vb](./VB/RichEditAPISample/CodeExamples/5 ExportActions.vb))
+* [6 ImportActions.cs](./CS/RichEditAPISample/CodeExamples/6 ImportActions.cs) (VB: [6 ImportActions.vb](./VB/RichEditAPISample/CodeExamples/6 ImportActions.vb))
+* [7 InlinePicturesActions.cs](./CS/RichEditAPISample/CodeExamples/7 InlinePicturesActions.cs) (VB: [7 InlinePicturesActions.vb](./VB/RichEditAPISample/CodeExamples/7 InlinePicturesActions.vb))
+* [8 FieldActions.cs](./CS/RichEditAPISample/CodeExamples/8 FieldActions.cs) (VB: [8 FieldActions.vb](./VB/RichEditAPISample/CodeExamples/8 FieldActions.vb))
+* [9 SearchAndReplaceActions.cs](./CS/RichEditAPISample/CodeExamples/9 SearchAndReplaceActions.cs) (VB: [9 SearchAndReplaceActions.vb](./VB/RichEditAPISample/CodeExamples/9 SearchAndReplaceActions.vb))
+* [A StylesActions.cs](./CS/RichEditAPISample/CodeExamples/A StylesActions.cs) (VB: [A StylesActions.vb](./VB/RichEditAPISample/CodeExamples/A StylesActions.vb))
+* [B HeaderAndFooterActions.cs](./CS/RichEditAPISample/CodeExamples/B HeaderAndFooterActions.cs) (VB: [B HeaderAndFooterActions.vb](./VB/RichEditAPISample/CodeExamples/B HeaderAndFooterActions.vb))
+* [C ShapesActions.cs](./CS/RichEditAPISample/CodeExamples/C ShapesActions.cs) (VB: [C ShapesActions.vb](./VB/RichEditAPISample/CodeExamples/C ShapesActions.vb))
+<!-- default file list end -->
 # WinForms RichEdit Document API
 
 
