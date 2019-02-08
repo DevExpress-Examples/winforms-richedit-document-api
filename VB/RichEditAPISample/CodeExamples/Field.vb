@@ -8,24 +8,21 @@ Imports System.Threading.Tasks
 Namespace RichEditAPISample.CodeExamples
     Friend Class FieldActions
         Private Shared Sub InsertField(ByVal document As Document)
-            '            #Region "#InsertField"
-            Dim caretPosition As DocumentPosition = document.CaretPosition
-
+'            #Region "#InsertField"
             'Start updating the document
-            caretPosition.BeginUpdateDocument()
-
+            document.BeginUpdate()
 
             'Create a DATE field at the caret position
-            document.Fields.Create(caretPosition, "DATE")
+            document.Fields.Create(document.CaretPosition, "DATE")
             document.Fields.Update()
 
             'Finalize the modification
             document.EndUpdate()
-            '            #End Region ' #InsertField
+'            #End Region ' #InsertField
         End Sub
 
         Private Shared Sub ModifyFieldCode(ByVal document As Document)
-            '            #Region "#ModifyFieldCode"
+'            #Region "#ModifyFieldCode"
             document.BeginUpdate()
 
             'Create a DATE field at the caret position
@@ -44,11 +41,11 @@ Namespace RichEditAPISample.CodeExamples
 
             'Update all document fields
             document.Fields.Update()
-            '            #End Region ' #ModifyFieldCode
+'            #End Region ' #ModifyFieldCode
         End Sub
 
         Private Shared Sub CreateFieldFromRange(ByVal document As Document)
-            '            #Region "#CreateFieldFromRange"
+'            #Region "#CreateFieldFromRange"
             document.BeginUpdate()
             'Insert the text to the document end
             document.AppendText("SYMBOL 0x54 \f Wingdings \s 24")
@@ -57,16 +54,16 @@ Namespace RichEditAPISample.CodeExamples
             'Convert the inserted text to the field 
             document.Fields.Create(document.Paragraphs(0).Range)
             document.Fields.Update()
-            '            #End Region ' #CreateFieldFromRange
+'            #End Region ' #CreateFieldFromRange
         End Sub
 
         Private Shared Sub ShowFieldCodes(ByVal document As Document)
-            '            #Region "#ShowFieldCodes"
+'            #Region "#ShowFieldCodes"
             document.LoadDocument("MailMergeSimple.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             For i As Integer = 0 To document.Fields.Count - 1
                 document.Fields(i).ShowCodes = True
             Next i
-            '            #End Region ' #ShowFieldCodes
+'            #End Region ' #ShowFieldCodes
         End Sub
 
 
