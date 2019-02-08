@@ -12,11 +12,13 @@ namespace RichEditAPISample.CodeExamples
         static void InsertField(Document document)
         {
             #region #InsertField
+            DocumentPosition caretPosition = document.CaretPosition;
+
             //Start updating the document
-            document.BeginUpdate();
-            
+            caretPosition.BeginUpdateDocument();
+
             //Create a DATE field at the caret position
-            document.Fields.Create(document.CaretPosition, "DATE");
+            document.Fields.Create(caretPosition, "DATE");
             document.Fields.Update();
 
             //Finalize the modification
