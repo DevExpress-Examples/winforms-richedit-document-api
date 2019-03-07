@@ -29,26 +29,28 @@ namespace RichEditAPISample.CodeExamples
         static void ModifyFieldCode(Document document)
         {
             #region #ModifyFieldCode
-            document.BeginUpdate();
+            DocumentPosition caretPosition = document.CaretPosition;
+            SubDocument currentDocument = caretPosition.BeginUpdateDocument();
 
             //Create a DATE field at the caret position
-            document.Fields.Create(document.CaretPosition, "DATE");
-            document.EndUpdate();
-            for (int i = 0; i < document.Fields.Count; i++)
+            currentDocument.Fields.Create(caretPosition, "DATE");
+            currentDocument.EndUpdate();
+
+            for (int i = 0; i < currentDocument.Fields.Count; i++)
             {
-                string fieldCode = document.GetText(document.Fields[i].CodeRange);
+                string fieldCode = document.GetText(currentDocument.Fields[i].CodeRange);
                 if (fieldCode == "DATE")
                 {
                     //Retrieve the range obtained by the field code
-                    DocumentPosition position = document.Fields[i].CodeRange.End;
+                    DocumentPosition position = currentDocument.Fields[i].CodeRange.End;
 
                     //Insert the format switch to the end of the field code range
-                    document.InsertText(position, @"\@ ""M/d/yyyy h:mm am/pm""");
+                    currentDocument.InsertText(position, @"\@ ""M/d/yyyy h:mm am/pm""");
                 }
             }
 
             //Update all document fields
-            document.Fields.Update();
+            currentDocument.Fields.Update();
             #endregion #ModifyFieldCode
         }
 
