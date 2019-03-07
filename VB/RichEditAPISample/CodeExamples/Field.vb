@@ -26,24 +26,26 @@ Namespace RichEditAPISample.CodeExamples
 
         Private Shared Sub ModifyFieldCode(ByVal document As Document)
             '            #Region "#ModifyFieldCode"
-            document.BeginUpdate()
+            Dim caretPosition As DocumentPosition = document.CaretPosition
+            Dim currentDocument As SubDocument = caretPosition.BeginUpdateDocument()
 
             'Create a DATE field at the caret position
-            document.Fields.Create(document.CaretPosition, "DATE")
-            document.EndUpdate()
-            For i As Integer = 0 To document.Fields.Count - 1
-                Dim fieldCode As String = document.GetText(document.Fields(i).CodeRange)
+            currentDocument.Fields.Create(document.CaretPosition, "DATE")
+            currentDocument.EndUpdate()
+
+            For i As Integer = 0 To currentDocument.Fields.Count - 1
+                Dim fieldCode As String = document.GetText(currentDocument.Fields(i).CodeRange)
                 If fieldCode = "DATE" Then
                     'Retrieve the range obtained by the field code
-                    Dim position As DocumentPosition = document.Fields(i).CodeRange.End
+                    Dim position As DocumentPosition = currentDocument.Fields(i).CodeRange.End
 
                     'Insert the format switch to the end of the field code range
-                    document.InsertText(position, "\@ ""M/d/yyyy h:mm am/pm""")
+                    currentDocument.InsertText(position, "\@ ""M/d/yyyy h:mm am/pm""")
                 End If
             Next i
 
             'Update all document fields
-            document.Fields.Update()
+            currentDocument.Fields.Update()            
             '            #End Region ' #ModifyFieldCode
         End Sub
 
