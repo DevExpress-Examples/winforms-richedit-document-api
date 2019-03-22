@@ -13,7 +13,7 @@ namespace RichEditAPISample.CodeExamples
         static void InsertBookmark(Document document)
         {
             #region #InsertBookmark
-            document.LoadDocument("Grimm.docx",DocumentFormat.OpenXml);  
+            document.LoadDocument("Documents//Grimm.docx",DocumentFormat.OpenXml);  
             document.BeginUpdate();           
             DocumentPosition pos = document.Range.Start;
             document.Bookmarks.Create(document.CreateRange(pos, 0), "Top");

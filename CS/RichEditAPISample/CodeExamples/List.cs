@@ -12,93 +12,124 @@ namespace RichEditAPISample.CodeExamples
         static void CreateBulletedList(Document document)
         {
             #region #CreateBulletedList
+            document.LoadDocument("Documents//List.docx");
             document.BeginUpdate();
-            // Define an abstract list that is the pattern for lists used in the document.
-            AbstractNumberingList list = document.AbstractNumberingLists.Add();
-            list.NumberingType = NumberingType.Bullet;
-            // Specify parameters for each list level.
-            ListLevel level = list.Levels[0];
-            CreateBulletedListHelper.AdjustLevelProperties(level, 100, 75, NumberingFormat.Decimal, new string('\u00B7', 1));
-            level = list.Levels[1];
-            CreateBulletedListHelper.AdjustLevelProperties(level, 300, 150, NumberingFormat.DecimalEnclosedParenthses, new string('\u006F', 1));
-            level = list.Levels[2];
-            CreateBulletedListHelper.AdjustLevelProperties(level, 450, 220, NumberingFormat.UpperRoman, new string('\u00B7', 1));
-            // Create a list for use in the document. It is based on a previously defined abstract list with ID = 0.
-            document.NumberingLists.Add(0);
-            document.EndUpdate();
 
-            document.AppendText("Line 1\nLine 2\nLine 3");
-            // Convert paragraphs to list items.
-            document.BeginUpdate();
+            // Create a new list pattern object
+            AbstractNumberingList list = document.AbstractNumberingLists.Add();
+
+            //Specify the list's type
+            list.NumberingType = NumberingType.Bullet;
+            ListLevel level = list.Levels[0];
+            level.ParagraphProperties.LeftIndent = 100;
+
+            //Specify the bullets' format
+            //Without this step, the list is considered as numbered
+            level.DisplayFormatString = "\u00B7";
+            level.CharacterProperties.FontName = "Symbol";
+
+            //Create a new list based on the specific pattern
+            NumberingList bulletedList = document.NumberingLists.Add(0);
+
+            // Add paragraphs to the list
             ParagraphCollection paragraphs = document.Paragraphs;
-            foreach (Paragraph pgf in paragraphs) {
-                pgf.ListIndex = 0;
-                pgf.ListLevel = 0;
-            }
-            paragraphs[1].ListLevel = 1;
-            paragraphs[2].ListLevel = 2;
+            paragraphs.AddParagraphsToList(document.Range, bulletedList, 0);
+
             document.EndUpdate();
             #endregion #CreateBulletedList
         }
-        #region #@CreateBulletedList
-        class CreateBulletedListHelper {
-            public static void AdjustLevelProperties(ListLevel level, int leftIndent, int firstLineIndent, NumberingFormat format, string displayFormat) {
-                level.CharacterProperties.FontName = "Symbol";
-                level.ParagraphProperties.LeftIndent = leftIndent;
-                level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging;
-                level.ParagraphProperties.FirstLineIndent = firstLineIndent;
-                level.Start = 1;
-                level.NumberingFormat = format;
-                level.DisplayFormatString = displayFormat;
-            }
-        }
-        #endregion #@CreateBulletedList
 
         static void CreateNumberedList(Document document)
         {
             #region #CreateNumberedList
+            document.LoadDocument("Documents//List.docx");
             document.BeginUpdate();
-            // Define an abstract list that is the pattern for lists used in the document.
-            AbstractNumberingList list = document.AbstractNumberingLists.Add();
-            list.NumberingType = NumberingType.MultiLevel;
-            // Specify parameters for each list level.
-            ListLevel level = list.Levels[0];
-            CreateNumberedListHelper.AdjustLevelProperties(level, 150, 75, NumberingFormat.Decimal, "{0}");
-            level = list.Levels[1];
-            CreateNumberedListHelper.AdjustLevelProperties(level, 300, 150, NumberingFormat.DecimalEnclosedParenthses, "{0}→{1}");
-            level = list.Levels[2];
-            CreateNumberedListHelper.AdjustLevelProperties(level, 450, 220, NumberingFormat.UpperRoman, "{0}→{1}→{2}");
-            // Create a list for use in the document. It is based on a previously defined abstract list with ID = 0.
-            document.NumberingLists.Add(0);
+
+            //Create a new pattern object
+            AbstractNumberingList abstractListNumberingRoman = document.AbstractNumberingLists.Add();
+
+            //Specify the list's type
+            abstractListNumberingRoman.NumberingType = NumberingType.Simple;
+
+            //Define the first level's properties
+            ListLevel level = abstractListNumberingRoman.Levels[0];
+            level.ParagraphProperties.LeftIndent = 150;
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging;
+            level.ParagraphProperties.FirstLineIndent = 75;
+            level.Start = 1;
+
+            //Specify the roman format
+            level.NumberingFormat = NumberingFormat.LowerRoman;
+            level.DisplayFormatString = "{0}.";
+
+            //Create a new list based on the specific pattern
+            NumberingList numberingList = document.NumberingLists.Add(0);
+
             document.EndUpdate();
 
-            document.AppendText("Line one\nLine two\nLine three\nLine four");
-            // Convert all paragraphs to list items of level 0.
             document.BeginUpdate();
             ParagraphCollection paragraphs = document.Paragraphs;
-            foreach (Paragraph pgf in paragraphs)
-            {
-                pgf.ListIndex = 0;
-                pgf.ListLevel = 0;
-            }
-            // Specify a different level for a certain paragraph.
-            paragraphs[1].ListLevel = 1;
+            //Add paragraphs to the list
+            paragraphs.AddParagraphsToList(document.Range, numberingList, 0);
             document.EndUpdate();
             #endregion #CreateNumberedList
         }
-        #region #@CreateNumberedList
-        class CreateNumberedListHelper {
-            public static void AdjustLevelProperties(ListLevel level, int leftIndent, int firstLineIndent, NumberingFormat format, string displayFormat) {
-                  level.ParagraphProperties.LeftIndent = leftIndent;
-                level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging;
-                level.ParagraphProperties.FirstLineIndent = firstLineIndent;
-                level.Start = 1;
-                level.NumberingFormat = format;
-                level.DisplayFormatString = displayFormat;
+
+        static void CreateMultilevelList(Document document)
+        {
+            #region #CreateMultilevelList
+            document.LoadDocument("Documents//List.docx");
+            document.BeginUpdate();
+
+            //Create a new pattern object
+            AbstractNumberingList list = document.AbstractNumberingLists.Add();
+
+            //Specify the list's type
+            list.NumberingType = NumberingType.MultiLevel;
+
+            //Specify parameters for each list level
+            ListLevel level = list.Levels[0];
+            level.ParagraphProperties.LeftIndent = 105;
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging;
+            level.ParagraphProperties.FirstLineIndent = 55;
+            level.Start = 1;
+            level.NumberingFormat = NumberingFormat.UpperRoman;
+            level.DisplayFormatString = "{0}";
+
+            level = list.Levels[1];
+            level.ParagraphProperties.LeftIndent = 125;
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging;
+            level.ParagraphProperties.FirstLineIndent = 65;
+            level.Start = 1;
+            level.NumberingFormat = NumberingFormat.LowerRoman;
+            level.DisplayFormatString = "{1})";
+
+            level = list.Levels[2];
+            level.ParagraphProperties.LeftIndent = 145;
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging;
+            level.ParagraphProperties.FirstLineIndent = 75;
+            level.Start = 1;
+            level.NumberingFormat = NumberingFormat.LowerLetter;
+            level.DisplayFormatString = "{2}.";
+
+            //Create a new list object based on the specified pattern
+            document.NumberingLists.Add(0);
+            document.EndUpdate();
+
+
+            //Convert all paragraphs to list items
+            document.BeginUpdate();
+            ParagraphCollection paragraphs = document.Paragraphs;
+
+            foreach (Paragraph pgf in paragraphs)
+            {
+                pgf.ListIndex = 0;
+                pgf.ListLevel = pgf.Index;
             }
+
+            document.EndUpdate();
+            #endregion #CreateMultilevelList
+
         }
-        #endregion #@CreateNumberedList
-
-
     }
 }

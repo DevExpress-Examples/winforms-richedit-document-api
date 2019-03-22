@@ -14,12 +14,14 @@ namespace RichEditAPISample.CodeExamples
         {
             #region #InsertCheckBox
             DocumentPosition currentPosition = document.CaretPosition;
+            SubDocument currentDocument = currentPosition.BeginUpdateDocument();
             DevExpress.XtraRichEdit.API.Native.CheckBox checkBox = document.FormFields.InsertCheckBox(currentPosition);
             checkBox.Name = "check1";
             checkBox.State = CheckBoxState.Checked;
             checkBox.SizeMode = CheckBoxSizeMode.Auto;
             checkBox.HelpTextType = FormFieldTextType.Custom;
             checkBox.HelpText = "help text";
+            currentPosition.EndUpdateDocument(currentDocument);
             #endregion #InsertCheckBox
         }
     }

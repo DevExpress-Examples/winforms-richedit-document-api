@@ -71,14 +71,13 @@ namespace RichEditAPISample.CodeExamples
         static void ShowFieldCodes(Document document)
         {
             #region #ShowFieldCodes
-            document.LoadDocument("MailMergeSimple.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//MailMergeSimple.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             for (int i = 0; i < document.Fields.Count; i++)
             {
                 document.Fields[i].ShowCodes = true;
             }
             #endregion #ShowFieldCodes
         }
-
 
     }
 }

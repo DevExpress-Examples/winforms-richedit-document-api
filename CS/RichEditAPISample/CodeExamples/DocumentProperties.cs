@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace RichEditAPISample.CodeExamples {
     class DocumentPropertiesActions {
-        static void StandardDocumentProperties(Document document) {
+        static void StandardDocumentProperties(Document document)
+        {
             #region #StandardDocumentProperties
             document.BeginUpdate();
 
@@ -27,7 +28,8 @@ namespace RichEditAPISample.CodeExamples {
         }
 
 
-        static void CustomDocumentProperties(Document document) {
+        static void CustomDocumentProperties(Document document)
+        {
             #region #CustomDocumentProperties
             document.BeginUpdate();
             document.AppendText("A new value of MyBookmarkProperty is obtained from here: NEWVALUE!\n");

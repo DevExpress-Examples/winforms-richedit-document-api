@@ -34,7 +34,7 @@ namespace RichEditAPISample.CodeExamples
         static void ResetCharacterFormatting(Document document)
         {
             #region #ResetCharacterFormatting
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             // Set font size and font name of the characters in the first paragraph to default. 
             // Other character properties remain intact.
             DocumentRange range = document.Paragraphs[0].Range;
@@ -83,7 +83,7 @@ namespace RichEditAPISample.CodeExamples
         static void ResetParagraphFormatting(Document document)
         {
             #region #ResetParagraphFormatting
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             // Set alignment and indentation of the first line in the first paragraph to default. 
             // Other paragraph properties remain intact.
             DocumentRange range = document.Paragraphs[0].Range;

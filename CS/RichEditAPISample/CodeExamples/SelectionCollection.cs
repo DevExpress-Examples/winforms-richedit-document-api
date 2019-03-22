@@ -10,7 +10,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectSingleRange(Document document)
         {
             #region #SelectSingleRange
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             int startPos = 80;
             int endPos = document.Tables[0].Rows[1].LastCell.ContentRange.Start.ToInt();
             DocumentRange myRange = document.CreateRange(startPos, endPos - startPos);
@@ -21,7 +21,7 @@ namespace RichEditAPISample.CodeExamples
         static void UnselectRangeExample1(Document document)
         {
             #region #UnselectRangeExample1
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             int startPos = 80;
             int endPos = document.Tables[0].Rows[1].LastCell.ContentRange.Start.ToInt();
             DocumentRange myRange = document.CreateRange(startPos, endPos - startPos);
@@ -34,7 +34,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectMultipleRanges(Document document)
         {
             #region #SelectMultipleRanges
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             DocumentRange range1 = document.CreateRange(80, 100);
             DocumentRange range2 = document.CreateRange(300, 100);
             int startPos3 = document.Tables[0].Rows[0].LastCell.ContentRange.Start.ToInt();
@@ -47,7 +47,7 @@ namespace RichEditAPISample.CodeExamples
         static void RemoveAtRangeIndex(Document document)
         {
             #region #RemoveAtRangeIndex
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             DocumentRange range1 = document.CreateRange(80, 100);
             DocumentRange range2 = document.CreateRange(300, 100);
             int startPos3 = document.Tables[0].Rows[0].LastCell.ContentRange.Start.ToInt();
@@ -61,7 +61,7 @@ namespace RichEditAPISample.CodeExamples
         static void UnselectRangeExample2(Document document)
         {
             #region #UnselectRangeExample2
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             DocumentRange range1 = document.CreateRange(300, 100);
             int startPos2 = document.Tables[0].Rows[0].LastCell.ContentRange.Start.ToInt();
             DocumentRange range2 = document.CreateRange(startPos2, 100);
@@ -75,7 +75,7 @@ namespace RichEditAPISample.CodeExamples
         static void ClearSelections(Document document)
         {
             #region #ClearSelections
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             DocumentRange range1 = document.CreateRange(80, 100);
             DocumentRange range2 = document.CreateRange(300, 100);
             int startPos3 = document.Tables[0].Rows[0].LastCell.ContentRange.Start.ToInt();
@@ -89,7 +89,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectTable(Document document)
         {
             #region #SelectTable
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             int startPos = document.Tables[0].FirstRow.FirstCell.ContentRange.Start.ToInt();
             int endPos = document.Tables[0].LastRow.LastCell.ContentRange.End.ToInt() + 1;
             DocumentRange range1 = document.CreateRange(startPos, endPos - startPos);
@@ -100,7 +100,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectCellsAndMerge(Document document)
         {
             #region #SelectCellsAndMerge
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             Table rootTable = document.Tables[0];
             DocumentPosition position10 = rootTable.Rows[1].Cells[0].Range.Start;
             DocumentPosition position11 = rootTable.Rows[1].Cells[1].Range.Start;
@@ -121,7 +121,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectAndMerge(Document document)
         {
             #region #SelectAndMerge
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             DocumentRange range1 = document.CreateRange(document.Range.Start, 12);
             DocumentRange range2 = document.CreateRange(document.Range.Start.ToInt() + 12, 9);
             DocumentRange range3 = document.CreateRange(document.Range.Start.ToInt() + 21, 3);
@@ -139,7 +139,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectCellsAndSplit(Document document)
         {
             #region #SelectCellsAndSplit
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml);
             Table rootTable = document.Tables[0];
             DocumentPosition position10 = rootTable.Rows[0].Cells[1].Range.Start;
             DocumentPosition position11 = rootTable.Rows[3].LastCell.Range.End;

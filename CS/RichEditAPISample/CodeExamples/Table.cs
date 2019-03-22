@@ -146,7 +146,7 @@ namespace RichEditAPISample.CodeExamples
         static void UseConditionalStyle(Document document)
         {
             #region #UseConditionalStyle
-            document.LoadDocument("TableStyles.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//TableStyles.docx", DocumentFormat.OpenXml);
             document.BeginUpdate();
 
             // Create a new style that is based on the 'Grid Table 5 Dark Accent 1' style defined in the loaded document.

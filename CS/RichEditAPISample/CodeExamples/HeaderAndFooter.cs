@@ -44,7 +44,8 @@ namespace RichEditAPISample.CodeExamples
             #endregion #ModifyHeader
         }
 
-        static void CreateFooter(Document document) {
+        static void CreateFooter(Document document)
+        {
             #region #CreateFooter
             Section firstSection = document.Sections[0];
             // Create an empty footer.
@@ -61,7 +62,8 @@ namespace RichEditAPISample.CodeExamples
         }
 
 
-        static void ModifyFooter(Document document) {
+        static void ModifyFooter(Document document)
+        {
             #region #ModifyFooter
             document.AppendSection();
             Section firstSection = document.Sections[0];

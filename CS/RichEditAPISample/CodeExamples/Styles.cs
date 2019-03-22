@@ -12,7 +12,7 @@ namespace RichEditAPISample.CodeExamples
         static void CreateNewCharacterStyle (Document document)
         {
             #region #CreateNewCharacterStyle
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             CharacterStyle cstyle = document.CharacterStyles["MyCStyle"];
             if (cstyle == null)
             {
@@ -35,7 +35,7 @@ namespace RichEditAPISample.CodeExamples
         static void CreateNewParagraphStyle(Document document)
         {
             #region #CreateNewParagraphStyle
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             ParagraphStyle pstyle = document.ParagraphStyles["MyPStyle"];
             if (pstyle == null)
             {

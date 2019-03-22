@@ -12,7 +12,7 @@ namespace RichEditAPISample.CodeExamples
         static void LineNumbering(Document document)
         {
             #region #LineNumbering
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             document.Unit = DevExpress.Office.DocumentUnit.Inch;
             Section sec = document.Sections[0];
             sec.LineNumbering.CountBy = 2;
@@ -25,7 +25,7 @@ namespace RichEditAPISample.CodeExamples
         static void CreateColumns(Document document)
         {
             #region #CreateColumns
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             document.Unit = DevExpress.Office.DocumentUnit.Inch;
             // Get the first section in a document.
             Section firstSection = document.Sections[0];

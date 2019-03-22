@@ -9,7 +9,7 @@ namespace RichEditAPISample.CodeExamples
         static void FindSixLetterWords(Document document)
         {
             #region #FindSixLetterWords
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             document.InsertSection(document.Range.Start);
             // Specify a regular expression that will find all six letter words.
             System.Text.RegularExpressions.Regex expr =
@@ -57,7 +57,7 @@ namespace RichEditAPISample.CodeExamples
         static void RemoveBlankLines(Document document)
         {
             #region #RemoveBlankLines
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             string pattern = @"((?<=^)|(?<=\n))\n";
             string replacementString = string.Empty;
             System.Text.RegularExpressions.Regex myRegEx = 

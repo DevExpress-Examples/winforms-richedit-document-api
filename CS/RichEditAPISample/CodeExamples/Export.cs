@@ -12,7 +12,7 @@ namespace RichEditAPISample.CodeExamples
         static void SaveImageFromRange(Document document)
         {
             #region #SaveImageFromRange
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml);
             DocumentRange docRange = document.Paragraphs[2].Range;
             ReadOnlyDocumentImageCollection docImageColl = document.Images.Get(docRange);
             if (docImageColl.Count > 0)
@@ -29,7 +29,7 @@ namespace RichEditAPISample.CodeExamples
         static void ExportRangeToHtml(Document document)
         {
             #region #ExportRangeToHtml
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml);
             // Get the range for three paragraphs.
             DocumentRange r = document.CreateRange(document.Paragraphs[0].Range.Start, document.Paragraphs[0].Range.Length + document.Paragraphs[1].Range.Length + document.Paragraphs[2].Range.Length);
             // Export to HTML.
@@ -43,7 +43,7 @@ namespace RichEditAPISample.CodeExamples
         static void ExportRangeToPlainText(Document document)
         {
             #region #ExportRangeToPlainText
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml);
             string plainText = document.GetText(document.Paragraphs[2].Range);
 
             DevExpress.XtraEditors.XtraMessageBox.SmartTextWrap = true;
@@ -53,7 +53,7 @@ namespace RichEditAPISample.CodeExamples
 
         static void ExportSelectionToPlainText(Document document) {
             #region #ExportSelectionToPlainText
-            document.LoadDocument("FloatingObjects.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//FloatingObjects.docx", DocumentFormat.OpenXml);
 
             // Select footer.
             SubDocument footerDocument = document.Sections[0].BeginUpdateFooter();
@@ -72,7 +72,7 @@ namespace RichEditAPISample.CodeExamples
 
         static void ExportFieldWithCodesToPlainText(Document document) {
             #region #ExportFieldWithCodesToPlainText
-            document.LoadDocument("SampleTOC.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SampleTOC.docx", DocumentFormat.OpenXml);
             string plainText = String.Empty;
 
             foreach (Field item in document.Fields) {
@@ -96,7 +96,7 @@ namespace RichEditAPISample.CodeExamples
 
         static void ExportToPlainTextWithTextFragmentOptions(Document document) {
             #region #ExportToPlainTextWithTextFragmentOptions
-            document.LoadDocument("SampleTOC.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//SampleTOC.docx", DocumentFormat.OpenXml);
             string plainText = String.Empty;
 
             foreach (Field item in document.Fields) {

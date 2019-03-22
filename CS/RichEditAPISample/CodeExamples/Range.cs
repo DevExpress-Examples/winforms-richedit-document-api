@@ -9,7 +9,7 @@ namespace RichEditAPISample.CodeExamples
         static void SelectTextInRange(Document document)
         {
             #region #SelectTextInRange
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml);
             DocumentPosition myStart = document.CreatePosition(69);
             DocumentRange myRange = document.CreateRange(myStart, 216);
             document.Selection = myRange;
@@ -61,7 +61,7 @@ namespace RichEditAPISample.CodeExamples
         static void CopyAndPasteRange(Document document)
         {
             #region #CopyAndPasteRange
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml);
             DocumentRange myRange = document.Paragraphs[0].Range;
             document.Copy(myRange);
             document.Paste(DocumentFormat.PlainText);
