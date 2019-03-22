@@ -8,92 +8,121 @@ Imports System.Threading.Tasks
 Namespace RichEditAPISample.CodeExamples
     Friend Class ListActions
         Private Shared Sub CreateBulletedList(ByVal document As Document)
-'            #Region "#CreateBulletedList"
-            document.BeginUpdate()
-            ' Define an abstract list that is the pattern for lists used in the document.
-            Dim list As AbstractNumberingList = document.AbstractNumberingLists.Add()
-            list.NumberingType = NumberingType.Bullet
-            ' Specify parameters for each list level.
-            Dim level As ListLevel = list.Levels(0)
-            CreateBulletedListHelper.AdjustLevelProperties(level, 100, 75, NumberingFormat.Decimal, New String(ChrW(&H00B7), 1))
-            level = list.Levels(1)
-            CreateBulletedListHelper.AdjustLevelProperties(level, 300, 150, NumberingFormat.DecimalEnclosedParenthses, New String(ChrW(&H006F), 1))
-            level = list.Levels(2)
-            CreateBulletedListHelper.AdjustLevelProperties(level, 450, 220, NumberingFormat.UpperRoman, New String(ChrW(&H00B7), 1))
-            ' Create a list for use in the document. It is based on a previously defined abstract list with ID = 0.
-            document.NumberingLists.Add(0)
-            document.EndUpdate()
+            '            #Region "#CreateBulletedList"
+            document.LoadDocument("Documents//List.docx")
 
-            document.AppendText("Line 1" & vbLf & "Line 2" & vbLf & "Line 3")
-            ' Convert paragraphs to list items.
             document.BeginUpdate()
+
+            ' Create a new list pattern objects
+            Dim list As AbstractNumberingList = document.AbstractNumberingLists.Add()
+
+            ' Specify the list's type
+            list.NumberingType = NumberingType.Bullet
+            Dim level As ListLevel = list.Levels(0)
+            level.ParagraphProperties.LeftIndent = 100
+
+            ' Specify the bullet's format
+            ' Without this step, the list is considered as numbered
+            level.DisplayFormatString = "·"
+            level.CharacterProperties.FontName = "Symbol"
+
+            ' Create a new list based on the specific pattern
+            Dim bulletedList As NumberingList = document.NumberingLists.Add(0)
+
+            ' Add paragraphs to the list
             Dim paragraphs As ParagraphCollection = document.Paragraphs
-            For Each pgf As Paragraph In paragraphs
-                pgf.ListIndex = 0
-                pgf.ListLevel = 0
-            Next pgf
-            paragraphs(1).ListLevel = 1
-            paragraphs(2).ListLevel = 2
+            paragraphs.AddParagraphsToList(document.Range, bulletedList, 0)
             document.EndUpdate()
-'            #End Region ' #CreateBulletedList
+            '            #End Region ' #CreateBulletedList
         End Sub
-        #Region "#@CreateBulletedList"
-        Private Class CreateBulletedListHelper
-            Public Shared Sub AdjustLevelProperties(ByVal level As ListLevel, ByVal leftIndent As Integer, ByVal firstLineIndent As Integer, ByVal format As NumberingFormat, ByVal displayFormat As String)
-                level.CharacterProperties.FontName = "Symbol"
-                level.ParagraphProperties.LeftIndent = leftIndent
-                level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging
-                level.ParagraphProperties.FirstLineIndent = firstLineIndent
-                level.Start = 1
-                level.NumberingFormat = format
-                level.DisplayFormatString = displayFormat
-            End Sub
-        End Class
-        #End Region ' #@CreateBulletedList
 
         Private Shared Sub CreateNumberedList(ByVal document As Document)
-'            #Region "#CreateNumberedList"
+            '            #Region "#CreateNumberedList"
+            document.LoadDocument("Documents//List.docx")
             document.BeginUpdate()
-            ' Define an abstract list that is the pattern for lists used in the document.
+
+            'Create a new pattern object
+            Dim abstractListNumberingRoman As AbstractNumberingList = document.AbstractNumberingLists.Add()
+
+            'Specify the list's type
+            abstractListNumberingRoman.NumberingType = NumberingType.Simple
+
+            'Define the first level's properties
+            Dim level As ListLevel = abstractListNumberingRoman.Levels(0)
+            level.ParagraphProperties.LeftIndent = 150
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging
+            level.ParagraphProperties.FirstLineIndent = 75
+            level.Start = 1
+            level.NumberingFormat = NumberingFormat.LowerRoman
+            level.DisplayFormatString = "{0}."
+
+            'Create a new list based on the specific pattern
+            Dim numberingList As NumberingList = document.NumberingLists.Add(0)
+            document.EndUpdate()
+
+            document.BeginUpdate()
+            Dim paragraphs As ParagraphCollection = document.Paragraphs
+
+            'Add paragraphs to the list
+            paragraphs.AddParagraphsToList(document.Range, numberingList, 0)
+            document.EndUpdate()
+            '            #End Region ' #CreateNumberedList
+        End Sub
+
+        Private Shared Sub CreateMultilevelList(ByVal document As Document)
+            ' Region "#CreateMultilevelList"
+            document.LoadDocument("Documents//List.docx")
+
+            document.BeginUpdate()
+
+            'Create a new list pattern object
             Dim list As AbstractNumberingList = document.AbstractNumberingLists.Add()
+
+            'Specify the list's type
             list.NumberingType = NumberingType.MultiLevel
-            ' Specify parameters for each list level.
+
+            'Specify parameters for each level
             Dim level As ListLevel = list.Levels(0)
-            CreateNumberedListHelper.AdjustLevelProperties(level, 150, 75, NumberingFormat.Decimal, "{0}")
+            level.ParagraphProperties.LeftIndent = 105
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging
+            level.ParagraphProperties.FirstLineIndent = 55
+            level.Start = 1
+            level.NumberingFormat = NumberingFormat.UpperRoman
+            level.DisplayFormatString = "{0}"
+
             level = list.Levels(1)
-            CreateNumberedListHelper.AdjustLevelProperties(level, 300, 150, NumberingFormat.DecimalEnclosedParenthses, "{0}→{1}")
+            level.ParagraphProperties.LeftIndent = 125
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging
+            level.ParagraphProperties.FirstLineIndent = 65
+            level.Start = 1
+            level.NumberingFormat = NumberingFormat.LowerRoman
+            level.DisplayFormatString = "{1})"
+
             level = list.Levels(2)
-            CreateNumberedListHelper.AdjustLevelProperties(level, 450, 220, NumberingFormat.UpperRoman, "{0}→{1}→{2}")
-            ' Create a list for use in the document. It is based on a previously defined abstract list with ID = 0.
+            level.ParagraphProperties.LeftIndent = 145
+            level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging
+            level.ParagraphProperties.FirstLineIndent = 75
+            level.Start = 1
+            level.NumberingFormat = NumberingFormat.LowerLetter
+            level.DisplayFormatString = "{2}."
+
+            'Create a new list object based on the specified pattern
             document.NumberingLists.Add(0)
             document.EndUpdate()
 
-            document.AppendText("Line one" & vbLf & "Line two" & vbLf & "Line three" & vbLf & "Line four")
-            ' Convert all paragraphs to list items of level 0.
             document.BeginUpdate()
+
+            ' Apply numbering to a list
             Dim paragraphs As ParagraphCollection = document.Paragraphs
+
             For Each pgf As Paragraph In paragraphs
                 pgf.ListIndex = 0
-                pgf.ListLevel = 0
-            Next pgf
-            ' Specify a different level for a certain paragraph.
-            paragraphs(1).ListLevel = 1
-            document.EndUpdate()
-'            #End Region ' #CreateNumberedList
-        End Sub
-        #Region "#@CreateNumberedList"
-        Private Class CreateNumberedListHelper
-            Public Shared Sub AdjustLevelProperties(ByVal level As ListLevel, ByVal leftIndent As Integer, ByVal firstLineIndent As Integer, ByVal format As NumberingFormat, ByVal displayFormat As String)
-                  level.ParagraphProperties.LeftIndent = leftIndent
-                level.ParagraphProperties.FirstLineIndentType = ParagraphFirstLineIndent.Hanging
-                level.ParagraphProperties.FirstLineIndent = firstLineIndent
-                level.Start = 1
-                level.NumberingFormat = format
-                level.DisplayFormatString = displayFormat
-            End Sub
-        End Class
-        #End Region ' #@CreateNumberedList
+                pgf.ListLevel = pgf.Index
+            Next
 
+            document.EndUpdate()
+            ' #End Region ' #CreateMultilevelList
+        End Sub
 
     End Class
 End Namespace

@@ -9,8 +9,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectTextInRange(ByVal document As Document)
-'            #Region "#SelectTextInRange"
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectTextInRange"
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
             Dim myStart As DocumentPosition = document.CreatePosition(69)
             Dim myRange As DocumentRange = document.CreateRange(myStart, 216)
             document.Selection = myRange
@@ -57,8 +57,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub CopyAndPasteRange(ByVal document As Document)
-'            #Region "#CopyAndPasteRange"
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml)
+            '            #Region "#CopyAndPasteRange"
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
             Dim myRange As DocumentRange = document.Paragraphs(0).Range
             document.Copy(myRange)
             document.Paste(DocumentFormat.PlainText)

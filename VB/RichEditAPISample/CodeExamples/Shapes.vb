@@ -16,8 +16,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub FloatingPictureOffset(ByVal document As Document)
-'            #Region "#FloatingPictureOffset"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#FloatingPictureOffset"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             document.Unit = DevExpress.Office.DocumentUnit.Centimeter
             Dim myPicture As Shape = document.Shapes(1)
             ' Clear the qualitative positioning to allow positioning by specifying the numerical offset.
@@ -32,8 +32,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ChangeZorderAndWrapping(ByVal document As Document)
-'            #Region "#ChangeZorderAndWrapping"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#ChangeZorderAndWrapping"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim myPicture As Shape = document.Shapes(1)
             myPicture.VerticalAlignment = ShapeVerticalAlignment.Top
             myPicture.ZOrder = document.Shapes(0).ZOrder - 1
@@ -62,8 +62,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub InsertRichTextInTextBox(ByVal document As Document)
-'            #Region "#InsertRichTextInTextBox"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#InsertRichTextInTextBox"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim myTextBox As Shape = document.Shapes(0)
             ' Allow text box resize to fit contents.
             myTextBox.TextBox.HeightRule = TextBoxSizeRule.Auto
@@ -80,8 +80,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub RotateAndResize(ByVal document As Document)
-'            #Region "#RotateAndResize"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#RotateAndResize"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             For Each s As Shape In document.Shapes
              ' Rotate a text box and resize a floating picture.
                 If s.TextBox Is Nothing Then
@@ -95,8 +95,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectShape(ByVal document As Document)
-'            #Region "#SelectShape"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#SelectShape"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             document.Selection = document.Shapes(0).Range
 '            #End Region ' #SelectShape
         End Sub

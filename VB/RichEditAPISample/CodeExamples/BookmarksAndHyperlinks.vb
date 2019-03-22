@@ -9,8 +9,8 @@ Imports DevExpress.XtraRichEdit
 Namespace RichEditAPISample.CodeExamples
     Friend Class BookmarksAndHyperlinksActions
         Private Shared Sub InsertBookmark(ByVal document As Document)
-'            #Region "#InsertBookmark"
-            document.LoadDocument("Grimm.docx",DocumentFormat.OpenXml)
+            '            #Region "#InsertBookmark"
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
             document.BeginUpdate()
             Dim pos As DocumentPosition = document.Range.Start
             document.Bookmarks.Create(document.CreateRange(pos, 0), "Top")

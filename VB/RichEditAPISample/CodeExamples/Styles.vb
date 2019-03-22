@@ -8,8 +8,8 @@ Imports System.Threading.Tasks
 Namespace RichEditAPISample.CodeExamples
     Friend Class StylesActions
         Private Shared Sub CreateNewCharacterStyle(ByVal document As Document)
-'            #Region "#CreateNewCharacterStyle"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#CreateNewCharacterStyle"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim cstyle As CharacterStyle = document.CharacterStyles("MyCStyle")
             If cstyle Is Nothing Then
                 cstyle = document.CharacterStyles.CreateNew()
@@ -28,8 +28,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub CreateNewParagraphStyle(ByVal document As Document)
-'            #Region "#CreateNewParagraphStyle"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#CreateNewParagraphStyle"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim pstyle As ParagraphStyle = document.ParagraphStyles("MyPStyle")
             If pstyle Is Nothing Then
                 pstyle = document.ParagraphStyles.CreateNew()

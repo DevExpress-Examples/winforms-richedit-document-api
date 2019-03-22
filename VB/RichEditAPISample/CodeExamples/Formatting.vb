@@ -33,8 +33,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ResetCharacterFormatting(ByVal document As Document)
-'            #Region "#ResetCharacterFormatting"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#ResetCharacterFormatting"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             ' Set font size and font name of the characters in the first paragraph to default. 
             ' Other character properties remain intact.
             Dim range As DocumentRange = document.Paragraphs(0).Range
@@ -80,8 +80,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ResetParagraphFormatting(ByVal document As Document)
-'            #Region "#ResetParagraphFormatting"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#ResetParagraphFormatting"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             ' Set alignment and indentation of the first line in the first paragraph to default. 
             ' Other paragraph properties remain intact.
             Dim range As DocumentRange = document.Paragraphs(0).Range

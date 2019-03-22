@@ -130,8 +130,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub UseConditionalStyle(ByVal document As Document)
-'            #Region "#UseConditionalStyle"
-            document.LoadDocument("TableStyles.docx", DocumentFormat.OpenXml)
+            '            #Region "#UseConditionalStyle"
+            document.LoadDocument("Documents//TableStyles.docx", DocumentFormat.OpenXml)
             document.BeginUpdate()
 
             ' Create a new style that is based on the 'Grid Table 5 Dark Accent 1' style defined in the loaded document.

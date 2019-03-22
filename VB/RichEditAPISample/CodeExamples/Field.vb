@@ -64,7 +64,7 @@ Namespace RichEditAPISample.CodeExamples
 
         Private Shared Sub ShowFieldCodes(ByVal document As Document)
             '            #Region "#ShowFieldCodes"
-            document.LoadDocument("MailMergeSimple.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            document.LoadDocument("Documents//MailMergeSimple.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             For i As Integer = 0 To document.Fields.Count - 1
                 document.Fields(i).ShowCodes = True
             Next i

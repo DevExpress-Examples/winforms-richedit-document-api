@@ -5,8 +5,8 @@ Namespace RichEditAPISample.CodeExamples
     Friend Class CommentsActions
 
         Private Shared Sub CreateComment(ByVal document As Document)
-'            #Region "#CreateComment"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#CreateComment"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim docRange As DocumentRange = document.Paragraphs(2).Range
             Dim commentAuthor As String = "Johnson Alphonso D"
             document.Comments.Create(docRange, commentAuthor, Date.Now)
@@ -27,8 +27,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub DeleteComment(ByVal document As Document)
-'            #Region "#DeleteComment"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#DeleteComment"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             If document.Comments.Count > 0 Then
                 document.Comments.Remove(document.Comments(0))
             End If
@@ -36,8 +36,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub EditCommentProperties(ByVal document As Document)
-'            #Region "#EditCommentProperties"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#EditCommentProperties"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim commentCount As Integer = document.Comments.Count
             If commentCount > 0 Then
                 document.BeginUpdate()
@@ -51,8 +51,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub EditCommentContent(ByVal document As Document)
-'            #Region "#EditCommentContent"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#EditCommentContent"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim commentCount As Integer = document.Comments.Count
             If commentCount > 0 Then
                 Dim comment As DevExpress.XtraRichEdit.API.Native.Comment = document.Comments(document.Comments.Count - 1)

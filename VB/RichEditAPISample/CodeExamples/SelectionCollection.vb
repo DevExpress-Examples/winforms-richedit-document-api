@@ -10,8 +10,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectSingleRange(ByVal document As Document)
-'            #Region "#SelectSingleRange"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectSingleRange"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim startPos As Integer = 80
             Dim endPos As Integer = document.Tables(0).Rows(1).LastCell.ContentRange.Start.ToInt()
             Dim myRange As DocumentRange = document.CreateRange(startPos, endPos - startPos)
@@ -20,8 +20,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub UnselectRangeExample1(ByVal document As Document)
-'            #Region "#UnselectRangeExample1"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#UnselectRangeExample1"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim startPos As Integer = 80
             Dim endPos As Integer = document.Tables(0).Rows(1).LastCell.ContentRange.Start.ToInt()
             Dim myRange As DocumentRange = document.CreateRange(startPos, endPos - startPos)
@@ -32,8 +32,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectMultipleRanges(ByVal document As Document)
-'            #Region "#SelectMultipleRanges"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectMultipleRanges"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim range1 As DocumentRange = document.CreateRange(80, 100)
             Dim range2 As DocumentRange = document.CreateRange(300, 100)
             Dim startPos3 As Integer = document.Tables(0).Rows(0).LastCell.ContentRange.Start.ToInt()
@@ -44,8 +44,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub RemoveAtRangeIndex(ByVal document As Document)
-'            #Region "#RemoveAtRangeIndex"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#RemoveAtRangeIndex"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim range1 As DocumentRange = document.CreateRange(80, 100)
             Dim range2 As DocumentRange = document.CreateRange(300, 100)
             Dim startPos3 As Integer = document.Tables(0).Rows(0).LastCell.ContentRange.Start.ToInt()
@@ -57,8 +57,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub UnselectRangeExample2(ByVal document As Document)
-'            #Region "#UnselectRangeExample2"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#UnselectRangeExample2"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim range1 As DocumentRange = document.CreateRange(300, 100)
             Dim startPos2 As Integer = document.Tables(0).Rows(0).LastCell.ContentRange.Start.ToInt()
             Dim range2 As DocumentRange = document.CreateRange(startPos2, 100)
@@ -70,8 +70,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ClearSelections(ByVal document As Document)
-'            #Region "#ClearSelections"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#ClearSelections"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim range1 As DocumentRange = document.CreateRange(80, 100)
             Dim range2 As DocumentRange = document.CreateRange(300, 100)
             Dim startPos3 As Integer = document.Tables(0).Rows(0).LastCell.ContentRange.Start.ToInt()
@@ -83,8 +83,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectTable(ByVal document As Document)
-'            #Region "#SelectTable"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectTable"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim startPos As Integer = document.Tables(0).FirstRow.FirstCell.ContentRange.Start.ToInt()
             Dim endPos As Integer = document.Tables(0).LastRow.LastCell.ContentRange.End.ToInt() + 1
             Dim range1 As DocumentRange = document.CreateRange(startPos, endPos - startPos)
@@ -93,8 +93,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectCellsAndMerge(ByVal document As Document)
-'            #Region "#SelectCellsAndMerge"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectCellsAndMerge"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim rootTable As Table = document.Tables(0)
             Dim position10 As DocumentPosition = rootTable.Rows(1).Cells(0).Range.Start
             Dim position11 As DocumentPosition = rootTable.Rows(1).Cells(1).Range.Start
@@ -113,8 +113,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectAndMerge(ByVal document As Document)
-'            #Region "#SelectAndMerge"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectAndMerge"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim range1 As DocumentRange = document.CreateRange(document.Range.Start, 12)
             Dim range2 As DocumentRange = document.CreateRange(document.Range.Start.ToInt() + 12, 9)
             Dim range3 As DocumentRange = document.CreateRange(document.Range.Start.ToInt() + 21, 3)
@@ -130,8 +130,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub SelectCellsAndSplit(ByVal document As Document)
-'            #Region "#SelectCellsAndSplit"
-            document.LoadDocument("SelectionCollection.docx", DocumentFormat.OpenXml)
+            '            #Region "#SelectCellsAndSplit"
+            document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
             Dim rootTable As Table = document.Tables(0)
             Dim position10 As DocumentPosition = rootTable.Rows(0).Cells(1).Range.Start
             Dim position11 As DocumentPosition = rootTable.Rows(3).LastCell.Range.End

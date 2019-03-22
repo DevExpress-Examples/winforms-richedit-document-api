@@ -8,8 +8,8 @@ Imports System.Threading.Tasks
 Namespace RichEditAPISample.CodeExamples
     Friend Class PageLayoutActions
         Private Shared Sub LineNumbering(ByVal document As Document)
-'            #Region "#LineNumbering"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#LineNumbering"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             document.Unit = DevExpress.Office.DocumentUnit.Inch
             Dim sec As Section = document.Sections(0)
             sec.LineNumbering.CountBy = 2
@@ -20,8 +20,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub CreateColumns(ByVal document As Document)
-'            #Region "#CreateColumns"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#CreateColumns"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             document.Unit = DevExpress.Office.DocumentUnit.Inch
             ' Get the first section in a document.
             Dim firstSection As Section = document.Sections(0)

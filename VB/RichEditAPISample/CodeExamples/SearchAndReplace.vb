@@ -5,8 +5,8 @@ Imports System.Linq
 Namespace RichEditAPISample.CodeExamples
     Friend Class SearchAndReplaceActions
         Private Shared Sub FindSixLetterWords(ByVal document As Document)
-'            #Region "#FindSixLetterWords"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#FindSixLetterWords"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             document.InsertSection(document.Range.Start)
             ' Specify a regular expression that will find all six letter words.
             Dim expr As New System.Text.RegularExpressions.Regex("\b\w{6}\b")
@@ -44,8 +44,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub RemoveBlankLines(ByVal document As Document)
-'            #Region "#RemoveBlankLines"
-            document.LoadDocument("Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            '            #Region "#RemoveBlankLines"
+            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
             Dim pattern As String = "((?<=^)|(?<=\n))\n"
             Dim replacementString As String = String.Empty
             Dim myRegEx As New System.Text.RegularExpressions.Regex(pattern)

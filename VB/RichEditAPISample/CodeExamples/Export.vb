@@ -8,8 +8,8 @@ Namespace RichEditAPISample.CodeExamples
     Friend Class ExportActions
 
         Private Shared Sub SaveImageFromRange(ByVal document As Document)
-'            #Region "#SaveImageFromRange"
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml)
+            '            #Region "#SaveImageFromRange"
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
             Dim docRange As DocumentRange = document.Paragraphs(2).Range
             Dim docImageColl As ReadOnlyDocumentImageCollection = document.Images.Get(docRange)
             If docImageColl.Count > 0 Then
@@ -23,8 +23,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ExportRangeToHtml(ByVal document As Document)
-'            #Region "#ExportRangeToHtml"
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml)
+            '            #Region "#ExportRangeToHtml"
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
             ' Get the range for three paragraphs.
             Dim r As DocumentRange = document.CreateRange(document.Paragraphs(0).Range.Start, document.Paragraphs(0).Range.Length + document.Paragraphs(1).Range.Length + document.Paragraphs(2).Range.Length)
             ' Export to HTML.
@@ -36,8 +36,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ExportRangeToPlainText(ByVal document As Document)
-'            #Region "#ExportRangeToPlainText"
-            document.LoadDocument("Grimm.docx", DocumentFormat.OpenXml)
+            '            #Region "#ExportRangeToPlainText"
+            document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
             Dim plainText As String = document.GetText(document.Paragraphs(2).Range)
 
             DevExpress.XtraEditors.XtraMessageBox.SmartTextWrap = True
@@ -46,8 +46,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ExportSelectionToPlainText(ByVal document As Document)
-'            #Region "#ExportSelectionToPlainText"
-            document.LoadDocument("FloatingObjects.docx", DocumentFormat.OpenXml)
+            '            #Region "#ExportSelectionToPlainText"
+            document.LoadDocument("Documents//FloatingObjects.docx", DocumentFormat.OpenXml)
 
             ' Select footer.
             Dim footerDocument As SubDocument = document.Sections(0).BeginUpdateFooter()
@@ -65,8 +65,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ExportFieldWithCodesToPlainText(ByVal document As Document)
-'            #Region "#ExportFieldWithCodesToPlainText"
-            document.LoadDocument("SampleTOC.docx", DocumentFormat.OpenXml)
+            '            #Region "#ExportFieldWithCodesToPlainText"
+            document.LoadDocument("Documents//SampleTOC.docx", DocumentFormat.OpenXml)
             Dim plainText As String = String.Empty
 
             For Each item As Field In document.Fields
@@ -88,8 +88,8 @@ Namespace RichEditAPISample.CodeExamples
         End Sub
 
         Private Shared Sub ExportToPlainTextWithTextFragmentOptions(ByVal document As Document)
-'            #Region "#ExportToPlainTextWithTextFragmentOptions"
-            document.LoadDocument("SampleTOC.docx", DocumentFormat.OpenXml)
+            '            #Region "#ExportToPlainTextWithTextFragmentOptions"
+            document.LoadDocument("Documents//SampleTOC.docx", DocumentFormat.OpenXml)
             Dim plainText As String = String.Empty
 
             For Each item As Field In document.Fields
