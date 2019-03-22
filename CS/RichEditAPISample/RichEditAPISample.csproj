@@ -142,18 +142,16 @@
     <EmbeddedResource Include="DisplayResultControl.resx">
       <DependentUpon>DisplayResultControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="FloatingObjects.docx">
+    <None Include="Documents\FloatingObjects.docx" />
+    <None Include="Documents\Grimm.docx" />
+    <None Include="Documents\List.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Grimm.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MailMergeSimple.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MovieRentals.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Documents\MailMergeSimple.docx" />
+    <None Include="Documents\MovieRentals.docx" />
+    <None Include="Documents\SampleTOC.docx" />
+    <None Include="Documents\SelectionCollection.docx" />
+    <None Include="Documents\TableStyles.docx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,15 +161,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SampleTOC.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="SelectionCollection.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="TableStyles.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
