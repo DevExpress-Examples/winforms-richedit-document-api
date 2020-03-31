@@ -133,6 +133,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -146,16 +147,30 @@
     <EmbeddedResource Include="DisplayResultControl.resx">
       <DependentUpon>DisplayResultControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Documents\FloatingObjects.docx" />
-    <None Include="Documents\Grimm.docx" />
-    <None Include="Documents\List.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="Documents\FloatingObjects.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Documents\MailMergeSimple.docx" />
-    <None Include="Documents\MovieRentals.docx" />
-    <None Include="Documents\SampleTOC.docx" />
-    <None Include="Documents\SelectionCollection.docx" />
-    <None Include="Documents\TableStyles.docx" />
+    <None Include="Documents\Grimm.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\List.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\MailMergeSimple.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\MovieRentals.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\SampleTOC.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\SelectionCollection.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Documents\TableStyles.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

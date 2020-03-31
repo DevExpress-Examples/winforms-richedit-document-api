@@ -59,7 +59,7 @@ namespace RichEditAPISample.CodeExamples
             myTextBox.Line.Color = System.Drawing.Color.Black;
             myTextBox.Line.Thickness = 1;
             // Modify text box content.
-            SubDocument textBoxDocument = myTextBox.TextBox.Document;
+            SubDocument textBoxDocument = myTextBox.ShapeFormat.TextBox.Document;
             textBoxDocument.AppendText("TextBox Text");
             CharacterProperties cp = textBoxDocument.BeginUpdateCharacters(textBoxDocument.Range.Start, 7);
             cp.ForeColor = System.Drawing.Color.Orange;
@@ -74,9 +74,9 @@ namespace RichEditAPISample.CodeExamples
             document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
             Shape myTextBox = document.Shapes[0];
             // Allow text box resize to fit contents.
-            myTextBox.TextBox.HeightRule = TextBoxSizeRule.Auto;
-            SubDocument boxedDocument = myTextBox.TextBox.Document;
-            int appendPosition = myTextBox.TextBox.Document.Range.End.ToInt();
+            myTextBox.ShapeFormat.TextBox.HeightRule = TextBoxSizeRule.Auto;
+            SubDocument boxedDocument = myTextBox.ShapeFormat.TextBox.Document;
+            int appendPosition = myTextBox.ShapeFormat.TextBox.Document.Range.End.ToInt();
             // Append the second paragraph of the main document to the boxed text.
             DocumentRange newRange = boxedDocument.AppendDocumentContent(document.Paragraphs[1].Range);
             boxedDocument.Paragraphs.Insert(newRange.Start);
@@ -94,14 +94,14 @@ namespace RichEditAPISample.CodeExamples
             foreach (Shape s in document.Shapes)
             {
              // Rotate a text box and resize a floating picture.
-                if (s.TextBox == null)
+                if (s.Type == ShapeType.Picture)
                 {
-                    s.ScaleX = 0.1f;
-                    s.ScaleY = 0.1f;
+                    s.RotationAngle = 45;
                 }
                 else
                 {
-                    s.RotationAngle = 45;
+                    s.ScaleX = 0.1f;
+                    s.ScaleY = 0.1f;
                 }
             }
             #endregion #RotateAndResize

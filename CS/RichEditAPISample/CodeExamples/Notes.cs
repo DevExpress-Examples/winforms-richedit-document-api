@@ -3,7 +3,7 @@ using DevExpress.XtraRichEdit.API.Native;
 
 namespace RichEditAPISample.CodeExamples
 {
-    public static class NotesActions
+     class NotesActions
     {
 
         static void InsertFootnotes(Document document)
@@ -26,14 +26,14 @@ namespace RichEditAPISample.CodeExamples
         {
             #region #InsertEndnotes
             document.LoadDocument("Documents//Grimm.docx");
-            
-            //Insert an endnote at the end of the last paragraph:
-            DocumentPosition endnotePosition = document.CreatePosition(document.Paragraphs[document.Paragraphs.Count - 1].Range.End.ToInt() - 1);
+
+            //Insert an endnote at the end of the second last paragraph paragraph:
+            DocumentPosition endnotePosition = document.CreatePosition(document.Paragraphs[document.Paragraphs.Count - 2].Range.End.ToInt() - 1);
             document.Endnotes.Insert(endnotePosition);
 
-            //Insert an endnote at the end of the second last paragraph with a custom mark:
-            DocumentPosition endnoteWithCustomMarkPosition = document.CreatePosition(document.Paragraphs[document.Paragraphs.Count - 2].Range.End.ToInt() - 1);
-            document.Endnotes.Insert(endnoteWithCustomMarkPosition, "\u0060");
+            //Insert an endnote with a custom mark:
+            DocumentPosition endnoteWithCustomMarkPosition = document.CreatePosition(document.Paragraphs[document.Paragraphs.Count - 3].Range.End.ToInt() - 1);
+            document.Endnotes.Insert(endnoteWithCustomMarkPosition, "\u00BA");
             #endregion #InsertEndnotes
         }
 
