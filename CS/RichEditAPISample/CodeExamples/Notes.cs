@@ -102,6 +102,10 @@ namespace RichEditAPISample.CodeExamples
                 
                 //Append a new text:
                 noteSeparator.AppendText("***");
+
+                CharacterProperties characterProperties = noteSeparator.BeginUpdateCharacters(noteSeparator.Range);
+                characterProperties.ForeColor = System.Drawing.Color.Blue;
+                noteSeparator.EndUpdateCharacters(characterProperties);
                 
                 //Finalize the update:
                 document.Footnotes.EndUpdateSeparator(noteSeparator);
