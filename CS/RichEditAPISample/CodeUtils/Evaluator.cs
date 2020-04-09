@@ -144,6 +144,7 @@ namespace RichEditAPISample
       "using System;\r\n" +
       "using DevExpress.XtraRichEdit;\r\n" +
       "using DevExpress.XtraRichEdit.API.Native;\r\n" +
+      "using DevExpress.Office.Utils;\r\n" +
       "using System.Drawing;\r\n" +
       "using System.Windows.Forms;\r\n" +
       "using DevExpress.Utils;\r\n" +
@@ -188,6 +189,7 @@ namespace RichEditAPISample
       "Imports System\r\n" +
       "Imports DevExpress.XtraRichEdit\r\n" +
       "Imports DevExpress.XtraRichEdit.API.Native\r\n" +
+            "Imports DevExpress.Office.Utils\r\n" +
       "Imports System.Drawing\r\n" +
       "Imports System.Windows.Forms\r\n" +
       "Imports DevExpress.Utils\r\n" +

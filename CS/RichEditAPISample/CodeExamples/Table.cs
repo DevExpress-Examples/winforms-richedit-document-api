@@ -258,5 +258,32 @@ namespace RichEditAPISample.CodeExamples
             //  document.Tables.Remove(tbl);
             #endregion #DeleteTable 
         }
+        static void WrapTextAroundTable(Document document)
+        {
+            #region #WrapTextAroundTable
+            document.LoadDocument("Documents//Grimm.docx");
+
+            Table table = document.Tables.Create(document.Paragraphs[4].Range.Start, 3, 3, AutoFitBehaviorType.AutoFitToContents);
+
+            table.BeginUpdate();
+            table.TextWrappingType = TableTextWrappingType.Around;
+
+            //Specify vertical alignment:
+            table.RelativeVerticalPosition = TableRelativeVerticalPosition.Paragraph;
+            table.VerticalAlignment = TableVerticalAlignment.None;
+            table.OffsetYRelative = DevExpress.Office.Utils.Units.InchesToDocumentsF(2f);
+
+            //Specify horizontal alignment:
+            table.RelativeHorizontalPosition = TableRelativeHorizontalPosition.Margin;
+            table.HorizontalAlignment = TableHorizontalAlignment.Center;
+
+            //Set distance between the text and the table:
+            table.MarginBottom = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3f);
+            table.MarginLeft = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3f);
+            table.MarginTop = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3f);
+            table.MarginRight = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3f);
+            table.EndUpdate();
+            #endregion #WrapTextAroundTable
+        }
     }
 }
