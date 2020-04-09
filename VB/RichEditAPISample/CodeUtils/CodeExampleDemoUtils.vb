@@ -7,25 +7,21 @@ Imports System.Threading.Tasks
 
 Namespace RichEditAPISample
 	#Region "CodeExampleDemoUtils"
-	Public NotInheritable Class CodeExampleDemoUtils
-
-		Private Sub New()
-		End Sub
-
-		Public Shared Function GatherExamplesFromProject(ByVal examplesPath As String, ByVal language As ExampleLanguage) As Dictionary(Of String, FileInfo)
+	Public Module CodeExampleDemoUtils
+		Public Function GatherExamplesFromProject(ByVal examplesPath As String, ByVal language As ExampleLanguage) As Dictionary(Of String, FileInfo)
 			Dim result As New Dictionary(Of String, FileInfo)()
 			For Each fileName As String In Directory.GetFiles(examplesPath, "*" & GetCodeExampleFileExtension(language))
 				result.Add(Path.GetFileNameWithoutExtension(fileName), New FileInfo(fileName))
 			Next fileName
 			Return result
 		End Function
-		Public Shared Function GetCodeExampleFileExtension(ByVal language As ExampleLanguage) As String
+		Public Function GetCodeExampleFileExtension(ByVal language As ExampleLanguage) As String
 			If language = ExampleLanguage.VB Then
 				Return ".vb"
 			End If
 			Return ".cs"
 		End Function
-		Public Shared Function DeleteLeadingWhiteSpaces(ByVal lines() As String, ByVal stringToDelete As String) As String()
+		Public Function DeleteLeadingWhiteSpaces(ByVal lines() As String, ByVal stringToDelete As String) As String()
 			Dim result(lines.Length - 1) As String
 			Dim stringToDeleteLength As Integer = stringToDelete.Length
 
@@ -35,7 +31,7 @@ Namespace RichEditAPISample
 			Next i
 			Return result
 		End Function
-		Public Shared Function ConvertStringToMoreHumanReadableForm(ByVal exampleName As String) As String
+		Public Function ConvertStringToMoreHumanReadableForm(ByVal exampleName As String) As String
 			Dim result As String = SplitCamelCase(exampleName)
 			result = result.Replace(" In ", " in ")
 			result = result.Replace(" And ", " and ")
@@ -45,25 +41,27 @@ Namespace RichEditAPISample
 			result = result.Replace(" By ", " by ")
 			Return result
 		End Function
-		Private Shared Function SplitCamelCase(ByVal exampleName As String) As String
+		Private Function SplitCamelCase(ByVal exampleName As String) As String
 			Dim length As Integer = exampleName.Length
 			If length = 1 Then
 				Return exampleName
 			End If
 
 			Dim result As New StringBuilder(length * 2)
-			For position As Integer = 0 To length - 2
+			Dim position As Integer = 0
+			Do While position < length - 1
 				Dim current As Char = exampleName.Chars(position)
 				Dim [next] As Char = exampleName.Chars(position + 1)
 				result.Append(current)
 				If Char.IsLower(current) AndAlso Char.IsUpper([next]) Then
 					result.Append(" "c)
 				End If
-			Next position
+				position += 1
+			Loop
 			result.Append(exampleName.Chars(length - 1))
 			Return result.ToString()
 		End Function
-		Public Shared Function GetExamplePath(ByVal exampleFolderName As String) As String
+		Public Function GetExamplePath(ByVal exampleFolderName As String) As String '"CodeExamples"
 			Dim examplesPath2 As String = Path.Combine(Directory.GetCurrentDirectory() & "\..\..\", exampleFolderName)
 			If Directory.Exists(examplesPath2) Then
 				Return examplesPath2
@@ -72,7 +70,7 @@ Namespace RichEditAPISample
 			Return examplesPathInInsallation
 		End Function
 
-		Public Shared Function GetRelativeDirectoryPath(ByVal name As String) As String
+		Public Function GetRelativeDirectoryPath(ByVal name As String) As String
 			name = "Data\" & name
 			Dim path As String = System.Windows.Forms.Application.StartupPath
 			Dim s As String = "\"
@@ -85,7 +83,7 @@ Namespace RichEditAPISample
 			Next i
 			Return ""
 		End Function
-		Public Shared Function FindExamples(ByVal examplePath As String, ByVal examplesCS As Dictionary(Of String, FileInfo), ByVal examplesVB As Dictionary(Of String, FileInfo)) As List(Of CodeExampleGroup)
+		Public Function FindExamples(ByVal examplePath As String, ByVal examplesCS As Dictionary(Of String, FileInfo), ByVal examplesVB As Dictionary(Of String, FileInfo)) As List(Of CodeExampleGroup)
 
 			Dim result As New List(Of CodeExampleGroup)()
 
@@ -117,13 +115,16 @@ Namespace RichEditAPISample
 					Continue For
 				End If
 
-				Dim group As New CodeExampleGroup() With {.Name = mergedExamplesCollection(0).HumanReadableGroupName, .Examples = mergedExamplesCollection}
+				Dim group As New CodeExampleGroup() With {
+					.Name = mergedExamplesCollection(0).HumanReadableGroupName,
+					.Examples = mergedExamplesCollection
+				}
 				result.Add(group)
 			Next sourceCodeItem
 			Return result
 		End Function
 
-		Public Shared Function DetectExampleLanguage(ByVal solutionFileNameWithoutExtenstion As String) As ExampleLanguage
+		Public Function DetectExampleLanguage(ByVal solutionFileNameWithoutExtenstion As String) As ExampleLanguage
 			Dim projectPath As String = Directory.GetCurrentDirectory() & "\..\..\"
 
 			Dim csproject() As String = Directory.GetFiles(projectPath, "*.csproj")
@@ -136,6 +137,6 @@ Namespace RichEditAPISample
 			End If
 			Return ExampleLanguage.Csharp
 		End Function
-	End Class
+	End Module
 	#End Region
 End Namespace

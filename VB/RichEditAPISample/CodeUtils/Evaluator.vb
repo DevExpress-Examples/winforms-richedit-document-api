@@ -108,28 +108,28 @@ Namespace RichEditAPISample
 		Protected Overrides Function GetCodeDomProvider() As CodeDomProvider
 			Return New Microsoft.CSharp.CSharpCodeProvider()
 		End Function
-'INSTANT VB NOTE: The variable codeStart was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private Const codeStart_Renamed As String = "using System;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit.API.Native;" & ControlChars.CrLf & "using DevExpress.Office.Utils;" & ControlChars.CrLf & "using System.Drawing;" & ControlChars.CrLf & "using System.Windows.Forms;" & ControlChars.CrLf & "using DevExpress.Utils;" & ControlChars.CrLf & "using System.IO;" & ControlChars.CrLf & "using System.Diagnostics;" & ControlChars.CrLf & "using System.Xml;" & ControlChars.CrLf & "using System.Data;" & ControlChars.CrLf & "using System.Collections.Generic;" & ControlChars.CrLf & "using System.Linq;" & ControlChars.CrLf & "using System.Globalization;" & ControlChars.CrLf & "namespace RichEditCodeResultViewer { " & ControlChars.CrLf & "public class ExampleItem { " & ControlChars.CrLf & "        public static void Process(Document document) { " & ControlChars.CrLf & ControlChars.CrLf
+'INSTANT VB NOTE: The field codeStart was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private Const codeStart_Conflict As String = "using System;" & vbCrLf & "using DevExpress.XtraRichEdit;" & vbCrLf & "using DevExpress.XtraRichEdit.API.Native;" & vbCrLf & "using System.Drawing;" & vbCrLf & "using System.Windows.Forms;" & vbCrLf & "using DevExpress.Utils;" & vbCrLf & "using System.IO;" & vbCrLf & "using System.Diagnostics;" & vbCrLf & "using System.Xml;" & vbCrLf & "using System.Data;" & vbCrLf & "using System.Collections.Generic;" & vbCrLf & "using System.Linq;" & vbCrLf & "using System.Globalization;" & vbCrLf & "namespace RichEditCodeResultViewer { " & vbCrLf & "public class ExampleItem { " & vbCrLf & "        public static void Process(Document document) { " & vbCrLf & vbCrLf
 
-'INSTANT VB NOTE: The variable codeBeforeClasses was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private Const codeBeforeClasses_Renamed As String = "       " & ControlChars.CrLf & " }" & ControlChars.CrLf & "    }" & ControlChars.CrLf
+'INSTANT VB NOTE: The field codeBeforeClasses was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private Const codeBeforeClasses_Conflict As String = "       " & vbCrLf & " }" & vbCrLf & "    }" & vbCrLf
 
-'INSTANT VB NOTE: The variable codeEnd was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private Const codeEnd_Renamed As String = ControlChars.CrLf & "    }" & ControlChars.CrLf
+'INSTANT VB NOTE: The field codeEnd was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private Const codeEnd_Conflict As String = vbCrLf & "    }" & vbCrLf
 
 		Protected Overrides ReadOnly Property CodeStart() As String
 			Get
-				Return codeStart_Renamed
+				Return codeStart_Conflict
 			End Get
 		End Property
 		Protected Overrides ReadOnly Property CodeBeforeClasses() As String
 			Get
-				Return codeBeforeClasses_Renamed
+				Return codeBeforeClasses_Conflict
 			End Get
 		End Property
 		Protected Overrides ReadOnly Property CodeEnd() As String
 			Get
-				Return codeEnd_Renamed
+				Return codeEnd_Conflict
 			End Get
 		End Property
 	End Class
@@ -139,30 +139,30 @@ Namespace RichEditAPISample
 		Inherits RichEditExampleCodeEvaluator
 
 		Protected Overrides Function GetCodeDomProvider() As CodeDomProvider
-			Return New Microsoft.VisualBasic.VBCodeProvider()
+			Return New VBCodeProvider()
 		End Function
-'INSTANT VB NOTE: The variable codeStart was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private Const codeStart_Renamed As String = "Imports Microsoft.VisualBasic" & ControlChars.CrLf & "Imports System" & ControlChars.CrLf & "Imports DevExpress.XtraRichEdit" & ControlChars.CrLf & "Imports DevExpress.XtraRichEdit.API.Native" & ControlChars.CrLf & "Imports DevExpress.Office.Utils" & ControlChars.CrLf & "Imports System.Drawing" & ControlChars.CrLf & "Imports System.Windows.Forms" & ControlChars.CrLf & "Imports DevExpress.Utils" & ControlChars.CrLf & "Imports System.IO" & ControlChars.CrLf & "Imports System.Diagnostics" & ControlChars.CrLf & "Imports System.Xml" & ControlChars.CrLf & "Imports System.Data" & ControlChars.CrLf & "Imports System.Collections.Generic" & ControlChars.CrLf & "Imports System.Globalization" & ControlChars.CrLf & "Namespace RichEditCodeResultViewer" & ControlChars.CrLf & "	Public Class ExampleItem" & ControlChars.CrLf & "		Public Shared Sub Process(ByVal document As Document)" & ControlChars.CrLf & ControlChars.CrLf
+'INSTANT VB NOTE: The field codeStart was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private Const codeStart_Conflict As String = "Imports Microsoft.VisualBasic" & vbCrLf & "Imports System" & vbCrLf & "Imports DevExpress.XtraRichEdit" & vbCrLf & "Imports DevExpress.XtraRichEdit.API.Native" & vbCrLf & "Imports System.Drawing" & vbCrLf & "Imports System.Windows.Forms" & vbCrLf & "Imports DevExpress.Utils" & vbCrLf & "Imports System.IO" & vbCrLf & "Imports System.Diagnostics" & vbCrLf & "Imports System.Xml" & vbCrLf & "Imports System.Data" & vbCrLf & "Imports System.Collections.Generic" & vbCrLf & "Imports System.Globalization" & vbCrLf & "Namespace RichEditCodeResultViewer" & vbCrLf & "	Public Class ExampleItem" & vbCrLf & "		Public Shared Sub Process(ByVal document As Document)" & vbCrLf & vbCrLf
 
-'INSTANT VB NOTE: The variable codeBeforeClasses was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private Const codeBeforeClasses_Renamed As String = ControlChars.CrLf & "		End Sub" & ControlChars.CrLf & "	End Class" & ControlChars.CrLf
+'INSTANT VB NOTE: The field codeBeforeClasses was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private Const codeBeforeClasses_Conflict As String = vbCrLf & "		End Sub" & vbCrLf & "	End Class" & vbCrLf
 
-'INSTANT VB NOTE: The variable codeEnd was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private Const codeEnd_Renamed As String = ControlChars.CrLf & "End Namespace" & ControlChars.CrLf
+'INSTANT VB NOTE: The field codeEnd was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private Const codeEnd_Conflict As String = vbCrLf & "End Namespace" & vbCrLf
 
 		Protected Overrides ReadOnly Property CodeStart() As String
 			Get
-				Return codeStart_Renamed
+				Return codeStart_Conflict
 			End Get
 		End Property
 		Protected Overrides ReadOnly Property CodeBeforeClasses() As String
 			Get
-				Return codeBeforeClasses_Renamed
+				Return codeBeforeClasses_Conflict
 			End Get
 		End Property
 		Protected Overrides ReadOnly Property CodeEnd() As String
 			Get
-				Return codeEnd_Renamed
+				Return codeEnd_Conflict
 			End Get
 		End Property
 	End Class

@@ -30,7 +30,7 @@
 			Me.dockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
 			Me.richEditCommentControl1 = New DevExpress.XtraRichEdit.RichEditCommentControl()
 			Me.hideContainerLeft = New DevExpress.XtraBars.Docking.AutoHideContainer()
-			DirectCast(Me.dockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+			CType(Me.dockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
 			Me.dockPanel1.SuspendLayout()
 			Me.dockPanel1_Container.SuspendLayout()
 			Me.SuspendLayout()
@@ -100,7 +100,7 @@
 			Me.Controls.Add(Me.dockPanel1)
 			Me.Name = "DisplayResultControl"
 			Me.Size = New System.Drawing.Size(800, 600)
-			DirectCast(Me.dockManager1, System.ComponentModel.ISupportInitialize).EndInit()
+			CType(Me.dockManager1, System.ComponentModel.ISupportInitialize).EndInit()
 			Me.dockPanel1.ResumeLayout(False)
 			Me.dockPanel1_Container.ResumeLayout(False)
 			Me.ResumeLayout(False)

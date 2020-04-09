@@ -3,15 +3,11 @@ Imports System
 Imports System.Drawing
 
 Namespace RichEditAPISample.CodeExamples
-	Public NotInheritable Class FormattingActions
-
-		Private Sub New()
-		End Sub
-
-		Private Shared Sub FormatText(ByVal document As Document)
+	Public Module FormattingActions
+		Private Sub FormatText(ByVal document As Document)
 '			#Region "#FormatText"
 			document.BeginUpdate()
-			document.AppendText("Normal" & ControlChars.Lf & "Formatted" & ControlChars.Lf & "Normal")
+			document.AppendText("Normal" & vbLf & "Formatted" & vbLf & "Normal")
 			document.EndUpdate()
 			' The target range is the second paragraph 
 			Dim range As DocumentRange = document.Paragraphs(1).Range
@@ -32,7 +28,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #FormatText
 		End Sub
 
-		Private Shared Sub ResetCharacterFormatting(ByVal document As Document)
+		Private Sub ResetCharacterFormatting(ByVal document As Document)
 '			#Region "#ResetCharacterFormatting"
 			document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
 			' Set font size and font name of the characters in the first paragraph to default. 
@@ -44,10 +40,10 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #ResetCharacterFormatting
 		End Sub
 
-		Private Shared Sub FormatParagraph(ByVal document As Document)
+		Private Sub FormatParagraph(ByVal document As Document)
 '			#Region "#FormatParagraph"
 			document.BeginUpdate()
-			document.AppendText("Modified Paragraph" & ControlChars.Lf & "Normal" & ControlChars.Lf & "Normal")
+			document.AppendText("Modified Paragraph" & vbLf & "Normal" & vbLf & "Normal")
 			document.EndUpdate()
 
 			'The target range is the first paragraph
@@ -79,7 +75,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #FormatParagraph
 		End Sub
 
-		Private Shared Sub ResetParagraphFormatting(ByVal document As Document)
+		Private Sub ResetParagraphFormatting(ByVal document As Document)
 '			#Region "#ResetParagraphFormatting"
 			document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
 			' Set alignment and indentation of the first line in the first paragraph to default. 
@@ -90,5 +86,5 @@ Namespace RichEditAPISample.CodeExamples
 			document.EndUpdateParagraphs(cp)
 '			#End Region ' #ResetParagraphFormatting
 		End Sub
-	End Class
+	End Module
 End Namespace

@@ -13,10 +13,10 @@ Namespace RichEditAPISample
 		Private current As ExampleLanguage
 
 		Private forceTextChangesCounter As Integer
-'INSTANT VB NOTE: The variable richEditTextChanged was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private richEditTextChanged_Renamed As Boolean = False
-'INSTANT VB NOTE: The variable lastExampleCodeModifiedTime was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Private lastExampleCodeModifiedTime_Renamed As Date = Date.Now
+'INSTANT VB NOTE: The field richEditTextChanged was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private richEditTextChanged_Conflict As Boolean = False
+'INSTANT VB NOTE: The field lastExampleCodeModifiedTime was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Private lastExampleCodeModifiedTime_Conflict As DateTime = DateTime.Now
 
 		Public Sub New(ByVal codeEditorCs As IRichEditControl, ByVal codeEditorVb As IRichEditControl, ByVal codeEditorCsClass As IRichEditControl, ByVal codeEditorVbClass As IRichEditControl)
 			Me.codeEditorCs = codeEditorCs
@@ -51,15 +51,15 @@ Namespace RichEditAPISample
 
 			End Get
 		End Property
-		Public ReadOnly Property LastExampleCodeModifiedTime() As Date
+		Public ReadOnly Property LastExampleCodeModifiedTime() As DateTime
 			Get
-				Return lastExampleCodeModifiedTime_Renamed
+				Return lastExampleCodeModifiedTime_Conflict
 			End Get
 		End Property
 
 		Public ReadOnly Property RichEditTextChanged() As Boolean
 			Get
-				Return richEditTextChanged_Renamed
+				Return richEditTextChanged_Conflict
 			End Get
 		End Property
 
@@ -75,14 +75,14 @@ Namespace RichEditAPISample
 				Finally
 					SubscribeRichEditEvent()
 					forceTextChangesCounter = 0 ' no changes in that richEdit (CurrentCodeEditor)
-					richEditTextChanged_Renamed = True
+					richEditTextChanged_Conflict = True
 				End Try
 			End Set
 		End Property
 		Private Sub richEditControl_TextChanged(ByVal sender As Object, ByVal e As EventArgs)
 			If forceTextChangesCounter <= 0 Then
-				richEditTextChanged_Renamed = True
-				lastExampleCodeModifiedTime_Renamed = Date.Now
+				richEditTextChanged_Conflict = True
+				lastExampleCodeModifiedTime_Conflict = DateTime.Now
 			Else
 				forceTextChangesCounter -= 1
 			End If
@@ -111,9 +111,9 @@ Namespace RichEditAPISample
 					richEditControlCsClass.Text = newExample.CodeCsHelper
 					richEditControlVbClass.Text = newExample.CodeVbHelper
 
-					richEditTextChanged_Renamed = False
+					richEditTextChanged_Conflict = False
 				Finally
-					richEditTextChanged_Renamed = True
+					richEditTextChanged_Conflict = True
 				End Try
 			End If
 			Return exampleCode
@@ -131,13 +131,13 @@ Namespace RichEditAPISample
 		Friend Sub AfterCompile(ByVal codeExecutedWithoutExceptions As Boolean)
 			UpdatePageBackground(codeExecutedWithoutExceptions)
 
-			richEditTextChanged_Renamed = False
+			richEditTextChanged_Conflict = False
 			ResetLastExampleModifiedTime()
 
 			SubscribeRichEditEvent()
 		End Sub
 		Public Sub ResetLastExampleModifiedTime()
-			lastExampleCodeModifiedTime_Renamed = Date.Now
+			lastExampleCodeModifiedTime_Conflict = DateTime.Now
 		End Sub
 		Private Sub UnsubscribeRichEditEvents()
 			RemoveHandler CurrentCodeEditor.ContentChanged, AddressOf richEditControl_TextChanged

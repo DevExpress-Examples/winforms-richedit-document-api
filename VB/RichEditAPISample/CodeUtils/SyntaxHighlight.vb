@@ -228,21 +228,17 @@ Namespace RichEditAPISample
 		End Function
 	End Class
 
-	Public NotInheritable Class SourceCodeDocumentFormat
-
-		Private Sub New()
-		End Sub
-
-		Public Shared ReadOnly Id As New DocumentFormat(1325)
-	End Class
+	Public Module SourceCodeDocumentFormat
+		Public ReadOnly Id As New DocumentFormat(1325)
+	End Module
 	Public Class SourcesCodeDocumentImporter
 		Inherits PlainTextDocumentImporter
 
-'INSTANT VB NOTE: The variable filter was renamed since Visual Basic does not allow variables and other class members to have the same name:
-		Friend Shared ReadOnly filter_Renamed As New FileDialogFilter("Source Files", New String() { "cs", "vb", "html", "htm", "js", "xml", "css" })
+'INSTANT VB NOTE: The field filter was renamed since Visual Basic does not allow fields to have the same name as other class members:
+		Friend Shared ReadOnly filter_Conflict As New FileDialogFilter("Source Files", New String() { "cs", "vb", "html", "htm", "js", "xml", "css" })
 		Public Overrides ReadOnly Property Filter() As FileDialogFilter
 			Get
-				Return filter_Renamed
+				Return filter_Conflict
 			End Get
 		End Property
 		Public Overrides ReadOnly Property Format() As DocumentFormat
@@ -256,7 +252,7 @@ Namespace RichEditAPISample
 
 		Public Overrides ReadOnly Property Filter() As FileDialogFilter
 			Get
-				Return SourcesCodeDocumentImporter.filter_Renamed
+				Return SourcesCodeDocumentImporter.filter_Conflict
 			End Get
 		End Property
 		Public Overrides ReadOnly Property Format() As DocumentFormat

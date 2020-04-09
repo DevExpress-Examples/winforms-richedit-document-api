@@ -278,10 +278,10 @@ Namespace RichEditAPISample
 			CurrentExampleLanguage = CodeExampleDemoUtils.DetectExampleLanguage("RichEditAPISample")
 			Me.evaluator = New RichEditExampleEvaluatorByTimer()
 
-			AddHandler Me.evaluator.QueryEvaluate, AddressOf OnExampleEvaluatorQueryEvaluate
-			AddHandler Me.evaluator.OnBeforeCompile, AddressOf evaluator_OnBeforeCompile
-			AddHandler Me.evaluator.OnAfterCompile, AddressOf evaluator_OnAfterCompile
-			AddHandler Me.xtraTabControl1.SelectedPageChanged, AddressOf xtraTabControl1_SelectedPageChanged
+			AddHandler evaluator.QueryEvaluate, AddressOf OnExampleEvaluatorQueryEvaluate
+			AddHandler evaluator.OnBeforeCompile, AddressOf evaluator_OnBeforeCompile
+			AddHandler evaluator.OnAfterCompile, AddressOf evaluator_OnAfterCompile
+			AddHandler xtraTabControl1.SelectedPageChanged, AddressOf xtraTabControl1_SelectedPageChanged
 
 			ShowFirstExample("Range")
 			treeList1.CollapseAll()
@@ -406,10 +406,10 @@ Namespace RichEditAPISample
 
 		Private Sub OnExampleEvaluatorQueryEvaluate(ByVal sender As Object, ByVal e As CodeEvaluationEventArgs)
 			e.Result = False
-			If codeEditor.RichEditTextChanged Then
-				Dim span As TimeSpan = Date.Now.Subtract(codeEditor.LastExampleCodeModifiedTime)
+			If codeEditor.RichEditTextChanged Then ' && compileComplete) {
+				Dim span As TimeSpan = DateTime.Now.Subtract(codeEditor.LastExampleCodeModifiedTime)
 
-				If span < TimeSpan.FromMilliseconds(1000) Then
+				If span < TimeSpan.FromMilliseconds(1000) Then 'CompileTimeIntervalInMilliseconds  1900
 					codeEditor.ResetLastExampleModifiedTime()
 					Return
 				End If

@@ -3,12 +3,8 @@ Imports DevExpress.XtraRichEdit.API.Native
 Imports System
 
 Namespace RichEditAPISample.CodeExamples
-	Public NotInheritable Class RangeActions
-
-		Private Sub New()
-		End Sub
-
-		Private Shared Sub SelectTextInRange(ByVal document As Document)
+	Public Module RangeActions
+		Private Sub SelectTextInRange(ByVal document As Document)
 '			#Region "#SelectTextInRange"
 			document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
 			Dim myStart As DocumentPosition = document.CreatePosition(69)
@@ -17,7 +13,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #SelectTextInRange
 		End Sub
 
-		Private Shared Sub InsertTextAtCaretPosition(ByVal document As Document)
+		Private Sub InsertTextAtCaretPosition(ByVal document As Document)
 '			#Region "#InsertTextAtCaretPosition"
 			Dim pos As DocumentPosition = document.CaretPosition
 			Dim doc As SubDocument = pos.BeginUpdateDocument()
@@ -26,7 +22,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #InsertTextAtCaretPosition
 		End Sub
 
-		Private Shared Sub InsertTextInRange(ByVal document As Document)
+		Private Sub InsertTextInRange(ByVal document As Document)
 '			#Region "#InsertTextInRange"
 			document.AppendText("ABCDEFGH")
 			Dim r1 As DocumentRange = document.CreateRange(1, 3)
@@ -41,7 +37,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #InsertTextInRange
 		End Sub
 
-		Private Shared Sub AppendTextToRange(ByVal document As Document)
+		Private Sub AppendTextToRange(ByVal document As Document)
 '			#Region "#AppendTextToRange"
 			document.AppendText("abcdefgh")
 			Dim r1 As DocumentRange = document.AppendText("X")
@@ -56,7 +52,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #AppendTextToRange
 		End Sub
 
-		Private Shared Sub CopyAndPasteRange(ByVal document As Document)
+		Private Sub CopyAndPasteRange(ByVal document As Document)
 '			#Region "#CopyAndPasteRange"
 			document.LoadDocument("Documents//Grimm.docx", DocumentFormat.OpenXml)
 			Dim myRange As DocumentRange = document.Paragraphs(0).Range
@@ -65,10 +61,10 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #CopyAndPasteRange
 		End Sub
 
-		Private Shared Sub AppendToParagraph(ByVal document As Document)
+		Private Sub AppendToParagraph(ByVal document As Document)
 '			#Region "#AppendToParagraph"
 			document.BeginUpdate()
-			document.AppendText("First Paragraph" & ControlChars.Lf & "Second Paragraph" & ControlChars.Lf & "Third Paragraph")
+			document.AppendText("First Paragraph" & vbLf & "Second Paragraph" & vbLf & "Third Paragraph")
 			document.EndUpdate()
 			Dim pos As DocumentPosition = document.CaretPosition
 			Dim doc As SubDocument = pos.BeginUpdateDocument()
@@ -80,5 +76,5 @@ Namespace RichEditAPISample.CodeExamples
 		End Sub
 
 
-	End Class
+	End Module
 End Namespace

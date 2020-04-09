@@ -4,12 +4,8 @@ Imports System
 Imports System.Collections.Generic
 
 Namespace RichEditAPISample.CodeExamples
-	Public NotInheritable Class SelectionCollectionActions
-
-		Private Sub New()
-		End Sub
-
-		Private Shared Sub SelectSingleRange(ByVal document As Document)
+	Public Module SelectionCollectionActions
+		Private Sub SelectSingleRange(ByVal document As Document)
 '			#Region "#SelectSingleRange"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim startPos As Integer = 80
@@ -19,7 +15,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #SelectSingleRange
 		End Sub
 
-		Private Shared Sub UnselectRangeExample1(ByVal document As Document)
+		Private Sub UnselectRangeExample1(ByVal document As Document)
 '			#Region "#UnselectRangeExample1"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim startPos As Integer = 80
@@ -31,7 +27,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #UnselectRangeExample1
 		End Sub
 
-		Private Shared Sub SelectMultipleRanges(ByVal document As Document)
+		Private Sub SelectMultipleRanges(ByVal document As Document)
 '			#Region "#SelectMultipleRanges"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim range1 As DocumentRange = document.CreateRange(80, 100)
@@ -43,7 +39,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #SelectMultipleRanges
 		End Sub
 
-		Private Shared Sub RemoveAtRangeIndex(ByVal document As Document)
+		Private Sub RemoveAtRangeIndex(ByVal document As Document)
 '			#Region "#RemoveAtRangeIndex"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim range1 As DocumentRange = document.CreateRange(80, 100)
@@ -56,7 +52,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #RemoveAtRangeIndex
 		End Sub
 
-		Private Shared Sub UnselectRangeExample2(ByVal document As Document)
+		Private Sub UnselectRangeExample2(ByVal document As Document)
 '			#Region "#UnselectRangeExample2"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim range1 As DocumentRange = document.CreateRange(300, 100)
@@ -69,7 +65,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #UnselectRangeExample2
 		End Sub
 
-		Private Shared Sub ClearSelections(ByVal document As Document)
+		Private Sub ClearSelections(ByVal document As Document)
 '			#Region "#ClearSelections"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim range1 As DocumentRange = document.CreateRange(80, 100)
@@ -82,7 +78,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #ClearSelections
 		End Sub
 
-		Private Shared Sub SelectTable(ByVal document As Document)
+		Private Sub SelectTable(ByVal document As Document)
 '			#Region "#SelectTable"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim startPos As Integer = document.Tables(0).FirstRow.FirstCell.ContentRange.Start.ToInt()
@@ -92,7 +88,7 @@ Namespace RichEditAPISample.CodeExamples
 '			#End Region ' #SelectTable
 		End Sub
 
-		Private Shared Sub SelectCellsAndMerge(ByVal document As Document)
+		Private Sub SelectCellsAndMerge(ByVal document As Document)
 '			#Region "#SelectCellsAndMerge"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim rootTable As Table = document.Tables(0)
@@ -107,12 +103,12 @@ Namespace RichEditAPISample.CodeExamples
 
 			Dim comment As Comment = document.Comments.Create(document.Selection, "")
 			Dim commentDoc As SubDocument = comment.BeginUpdate()
-			commentDoc.AppendText(String.Format(ControlChars.CrLf & "SelectionCollection " & ControlChars.CrLf & "contains {0} item(s).", document.Selections.Count))
+			commentDoc.AppendText(String.Format(vbCrLf & "SelectionCollection " & vbCrLf & "contains {0} item(s).", document.Selections.Count))
 			comment.EndUpdate(commentDoc)
 '			#End Region ' #SelectCellsAndMerge
 		End Sub
 
-		Private Shared Sub SelectAndMerge(ByVal document As Document)
+		Private Sub SelectAndMerge(ByVal document As Document)
 '			#Region "#SelectAndMerge"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim range1 As DocumentRange = document.CreateRange(document.Range.Start, 12)
@@ -124,12 +120,12 @@ Namespace RichEditAPISample.CodeExamples
 
 			Dim comment As Comment = document.Comments.Create(document.Selection, "")
 			Dim commentDoc As SubDocument = comment.BeginUpdate()
-			commentDoc.AppendText(String.Format(ControlChars.CrLf & "SelectionCollection " & ControlChars.CrLf & "contains {0} item(s).", document.Selections.Count))
+			commentDoc.AppendText(String.Format(vbCrLf & "SelectionCollection " & vbCrLf & "contains {0} item(s).", document.Selections.Count))
 			comment.EndUpdate(commentDoc)
 '			#End Region ' #SelectAndMerge
 		End Sub
 
-		Private Shared Sub SelectCellsAndSplit(ByVal document As Document)
+		Private Sub SelectCellsAndSplit(ByVal document As Document)
 '			#Region "#SelectCellsAndSplit"
 			document.LoadDocument("Documents//SelectionCollection.docx", DocumentFormat.OpenXml)
 			Dim rootTable As Table = document.Tables(0)
@@ -141,10 +137,10 @@ Namespace RichEditAPISample.CodeExamples
 
 			Dim comment As Comment = document.Comments.Create(document.Selection, "")
 			Dim commentDoc As SubDocument = comment.BeginUpdate()
-			commentDoc.AppendText(String.Format(ControlChars.CrLf & "SelectionCollection " & ControlChars.CrLf & "contains {0} item(s).", document.Selections.Count))
+			commentDoc.AppendText(String.Format(vbCrLf & "SelectionCollection " & vbCrLf & "contains {0} item(s).", document.Selections.Count))
 			comment.EndUpdate(commentDoc)
 '			#End Region ' #SelectCellsAndSplit
 		End Sub
 
-	End Class
+	End Module
 End Namespace

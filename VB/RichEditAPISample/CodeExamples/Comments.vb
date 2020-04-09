@@ -9,7 +9,7 @@ Namespace RichEditAPISample.CodeExamples
 			document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
 			Dim docRange As DocumentRange = document.Paragraphs(2).Range
 			Dim commentAuthor As String = "Johnson Alphonso D"
-			document.Comments.Create(docRange, commentAuthor, Date.Now)
+			document.Comments.Create(docRange, commentAuthor, DateTime.Now)
 '			#End Region ' #CreateComment
 		End Sub
 
@@ -20,7 +20,7 @@ Namespace RichEditAPISample.CodeExamples
 				Dim resRanges() As DocumentRange = document.FindAll("trump", SearchOptions.None, document.Comments(1).Range)
 				If resRanges.Length > 0 Then
 					Dim newComment As Comment = document.Comments.Create("Vicars Anny", document.Comments(1))
-					newComment.Date = Date.Now
+					newComment.Date = DateTime.Now
 				End If
 			End If
 '			#End Region ' #CreateNestedComment
@@ -43,7 +43,7 @@ Namespace RichEditAPISample.CodeExamples
 				document.BeginUpdate()
 				Dim comment As DevExpress.XtraRichEdit.API.Native.Comment = document.Comments(document.Comments.Count - 1)
 				comment.Name = "New Name"
-				comment.Date = Date.Now
+				comment.Date = DateTime.Now
 				comment.Author = "New Author"
 				document.EndUpdate()
 			End If

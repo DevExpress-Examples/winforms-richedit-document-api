@@ -35,7 +35,7 @@ Namespace RichEditAPISample
 			Dim matches = Regex.Matches(sourceCode, RegexRegionPattern, RegexOptions.Singleline)
 
 			For Each match In matches
-				Dim lines() As String = match.ToString().Split(New String() { ControlChars.Lf }, StringSplitOptions.None)
+				Dim lines() As String = match.ToString().Split(New String() { vbLf }, StringSplitOptions.None)
 
 				If lines.Length <= 2 Then
 					Continue For
@@ -48,7 +48,7 @@ Namespace RichEditAPISample
 					Continue For
 				End If
 
-				Dim exampleCode As String = String.Join(ControlChars.CrLf, lines, 1, lines.Length - 2)
+				Dim exampleCode As String = String.Join(vbCrLf, lines, 1, lines.Length - 2)
 				result.Add(CreateRichEditExample(groupName, regionName, exampleCode))
 
 			Next match
@@ -115,7 +115,7 @@ Namespace RichEditAPISample
 
 		Protected Overrides Function DeleteLeadingWhiteSpacesFromSourceCode(ByVal lines() As String) As String()
 			Dim result() As String = MyBase.DeleteLeadingWhiteSpacesFromSourceCode(lines)
-			Return CodeExampleDemoUtils.DeleteLeadingWhiteSpaces(result, ControlChars.Tab & ControlChars.Tab)
+			Return CodeExampleDemoUtils.DeleteLeadingWhiteSpaces(result, vbTab & vbTab)
 		End Function
 		Protected Overrides Function ValidateRegionName(ByVal lines() As String, ByRef regionName As String) As Boolean
 			Dim result As Boolean = MyBase.ValidateRegionName(lines, regionName)

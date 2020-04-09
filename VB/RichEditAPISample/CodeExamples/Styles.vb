@@ -45,7 +45,7 @@ Namespace RichEditAPISample.CodeExamples
 		Private Shared Sub CreateNewLinkedStyle(ByVal document As Document)
 '			#Region "#CreateNewLinkedStyle"
 			document.BeginUpdate()
-			document.AppendText("Line One" & ControlChars.Lf & "Line Two" & ControlChars.Lf & "Line Three")
+			document.AppendText("Line One" & vbLf & "Line Two" & vbLf & "Line Three")
 			document.EndUpdate()
 
 			'Create new paragraph style

@@ -16,11 +16,11 @@ Namespace RichEditAPISample.CodeExamples
 			document.DocumentProperties.Category = "TestDoc"
 			document.DocumentProperties.Description = "This code demonstrates API to modify and display standard document properties."
 
-			document.Fields.Create(document.AppendText(ControlChars.Lf & "AUTHOR: ").End, "AUTHOR")
-			document.Fields.Create(document.AppendText(ControlChars.Lf & "TITLE: ").End, "TITLE")
-			document.Fields.Create(document.AppendText(ControlChars.Lf & "COMMENTS: ").End, "COMMENTS")
-			document.Fields.Create(document.AppendText(ControlChars.Lf & "CREATEDATE: ").End, "CREATEDATE")
-			document.Fields.Create(document.AppendText(ControlChars.Lf & "Category: ").End, "DOCPROPERTY Category")
+			document.Fields.Create(document.AppendText(vbLf & "AUTHOR: ").End, "AUTHOR")
+			document.Fields.Create(document.AppendText(vbLf & "TITLE: ").End, "TITLE")
+			document.Fields.Create(document.AppendText(vbLf & "COMMENTS: ").End, "COMMENTS")
+			document.Fields.Create(document.AppendText(vbLf & "CREATEDATE: ").End, "CREATEDATE")
+			document.Fields.Create(document.AppendText(vbLf & "Category: ").End, "DOCPROPERTY Category")
 			document.Fields.Update()
 			document.EndUpdate()
 '			#End Region ' #StandardDocumentProperties
@@ -30,15 +30,15 @@ Namespace RichEditAPISample.CodeExamples
 		Private Shared Sub CustomDocumentProperties(ByVal document As Document)
 '			#Region "#CustomDocumentProperties"
 			document.BeginUpdate()
-			document.AppendText("A new value of MyBookmarkProperty is obtained from here: NEWVALUE!" & ControlChars.Lf)
+			document.AppendText("A new value of MyBookmarkProperty is obtained from here: NEWVALUE!" & vbLf)
 			document.Bookmarks.Create(document.FindAll("NEWVALUE!", SearchOptions.CaseSensitive)(0), "bmOne")
-			document.AppendText(ControlChars.Lf & "MyNumericProperty: ")
+			document.AppendText(vbLf & "MyNumericProperty: ")
 			document.Fields.Create(document.Range.End, "DOCPROPERTY ""MyNumericProperty""")
-			document.AppendText(ControlChars.Lf & "MyStringProperty: ")
+			document.AppendText(vbLf & "MyStringProperty: ")
 			document.Fields.Create(document.Range.End, "DOCPROPERTY ""MyStringProperty""")
-			document.AppendText(ControlChars.Lf & "MyBooleanProperty: ")
+			document.AppendText(vbLf & "MyBooleanProperty: ")
 			document.Fields.Create(document.Range.End, "DOCPROPERTY ""MyBooleanProperty""")
-			document.AppendText(ControlChars.Lf & "MyBookmarkProperty: ")
+			document.AppendText(vbLf & "MyBookmarkProperty: ")
 			document.Fields.Create(document.Range.End, "DOCPROPERTY ""MyBookmarkProperty""")
 			document.EndUpdate()
 
