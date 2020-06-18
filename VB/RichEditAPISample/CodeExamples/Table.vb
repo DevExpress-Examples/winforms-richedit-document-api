@@ -228,5 +228,31 @@ Namespace RichEditAPISample.CodeExamples
 			'  document.Tables.Remove(tbl);
 '			#End Region ' #DeleteTable 
 		End Sub
+		Private Shared Sub WrapTextAroundTable(ByVal document As Document)
+'			#Region "#WrapTextAroundTable"
+			document.LoadDocument("Documents//Grimm.docx")
+
+			Dim table As Table = document.Tables.Create(document.Paragraphs(4).Range.Start, 3, 3, AutoFitBehaviorType.AutoFitToContents)
+
+			table.BeginUpdate()
+			table.TextWrappingType = TableTextWrappingType.Around
+
+			'Specify vertical alignment:
+			table.RelativeVerticalPosition = TableRelativeVerticalPosition.Paragraph
+			table.VerticalAlignment = TableVerticalAlignment.None
+			table.OffsetYRelative = DevExpress.Office.Utils.Units.InchesToDocumentsF(2F)
+
+			'Specify horizontal alignment:
+			table.RelativeHorizontalPosition = TableRelativeHorizontalPosition.Margin
+			table.HorizontalAlignment = TableHorizontalAlignment.Center
+
+			'Set distance between the text and the table:
+			table.MarginBottom = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3F)
+			table.MarginLeft = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3F)
+			table.MarginTop = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3F)
+			table.MarginRight = DevExpress.Office.Utils.Units.InchesToDocumentsF(0.3F)
+			table.EndUpdate()
+'			#End Region ' #WrapTextAroundTable
+		End Sub
 	End Class
 End Namespace
