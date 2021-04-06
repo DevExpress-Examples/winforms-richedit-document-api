@@ -111,7 +111,7 @@ Namespace RichEditAPISample
 					mergedExamplesCollection.Merge(foundExamplesCS)
 					mergedExamplesCollection.Merge(foundExamplesVB)
 
-				If mergedExamplesCollection.Count = 0 Then
+				If AddressOf mergedExamplesCollection.Count = 0 Then
 					Continue For
 				End If
 

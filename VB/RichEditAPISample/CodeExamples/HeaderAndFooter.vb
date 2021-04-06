@@ -11,10 +11,8 @@ Namespace RichEditAPISample.CodeExamples
 '			#Region "#CreateHeader"
 			Dim firstSection As Section = document.Sections(0)
 			' Create an empty header.
-			Dim newHeader As SubDocument = firstSection.BeginUpdateHeader()
-			firstSection.EndUpdateHeader(newHeader)
 			' Check whether the document already has a header (the same header for all pages).
-			If firstSection.HasHeader(HeaderFooterType.Primary) Then
+			If Not firstSection.HasHeader(HeaderFooterType.Primary) Then
 				Dim headerDocument As SubDocument = firstSection.BeginUpdateHeader()
 				document.ChangeActiveDocument(headerDocument)
 				document.CaretPosition = headerDocument.CreatePosition(0)
