@@ -14,10 +14,8 @@ namespace RichEditAPISample.CodeExamples
             #region #CreateHeader
             Section firstSection = document.Sections[0];
             // Create an empty header.
-            SubDocument newHeader = firstSection.BeginUpdateHeader();
-            firstSection.EndUpdateHeader(newHeader);
             // Check whether the document already has a header (the same header for all pages).
-            if (firstSection.HasHeader(HeaderFooterType.Primary))
+            if (!firstSection.HasHeader(HeaderFooterType.Primary))
             {
                 SubDocument headerDocument = firstSection.BeginUpdateHeader();
                 document.ChangeActiveDocument(headerDocument);
