@@ -19,7 +19,7 @@ namespace RichEditAPISample.CodeExamples
             {
                 SubDocument headerDocument = firstSection.BeginUpdateHeader();
                 document.ChangeActiveDocument(headerDocument);
-                document.CaretPosition = headerDocument.CreatePosition(0);
+                headerDocument.AppendText("Header");
                 firstSection.EndUpdateHeader(headerDocument);
             }
             #endregion #CreateHeader
