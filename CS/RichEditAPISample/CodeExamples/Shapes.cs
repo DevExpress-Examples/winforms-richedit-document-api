@@ -14,7 +14,7 @@ namespace RichEditAPISample.CodeExamples
             #region #AddFloatingPicture
             document.AppendText("Line One\nLine Two\nLine Three");
             Shape myPicture = document.Shapes.InsertPicture(document.CreatePosition(15), 
-                System.Drawing.Image.FromFile("beverages.png"));
+                DocumentImageSource.FromFile("beverages.png"));
             myPicture.HorizontalAlignment = ShapeHorizontalAlignment.Center;
             #endregion #AddFloatingPicture
         }
@@ -71,17 +71,21 @@ namespace RichEditAPISample.CodeExamples
         static void InsertRichTextInTextBox(Document document)
         {
             #region #InsertRichTextInTextBox
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx");
             Shape myTextBox = document.Shapes[0];
+            
             // Allow text box resize to fit contents.
             myTextBox.ShapeFormat.TextBox.HeightRule = TextBoxSizeRule.Auto;
             SubDocument boxedDocument = myTextBox.ShapeFormat.TextBox.Document;
             int appendPosition = myTextBox.ShapeFormat.TextBox.Document.Range.End.ToInt();
+            
             // Append the second paragraph of the main document to the boxed text.
             DocumentRange newRange = boxedDocument.AppendDocumentContent(document.Paragraphs[1].Range);
             boxedDocument.Paragraphs.Insert(newRange.Start);
+            
             // Insert an image form the main document into the text box.
-            boxedDocument.Images.Insert(boxedDocument.CreatePosition(appendPosition), document.Images[0].Image.NativeImage);
+            boxedDocument.Images.Insert(boxedDocument.CreatePosition(appendPosition), DocumentImageSource.FromImage(document.Images[0].Image.NativeImage));
+            
             // Resize the image so that its size equals the image in the main document.
             boxedDocument.Images[0].Size = document.Images[0].Size;
             #endregion #InsertRichTextInTextBox

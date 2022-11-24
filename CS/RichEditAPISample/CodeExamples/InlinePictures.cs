@@ -20,7 +20,7 @@ namespace RichEditAPISample.CodeExamples
         static void ImageCollection(Document document)
         {
             #region #ImageCollection
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//Grimm.docx");
             ReadOnlyDocumentImageCollection images = document.Images;
             // If the width of an image exceeds 50 millimeters, 
             // the image is scaled proportionally to half its size.
@@ -38,7 +38,7 @@ namespace RichEditAPISample.CodeExamples
         static void SaveImageToFile(Document document)
         {
             #region #SaveImageToFile
-            document.LoadDocument("Documents//MovieRentals.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml);
+            document.LoadDocument("Documents//MovieRentals.docx");
             DocumentRange myRange = document.CreateRange(0,100);
             ReadOnlyDocumentImageCollection images = document.Images.Get(myRange);
             if (images.Count > 0)
