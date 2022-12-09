@@ -25,8 +25,31 @@ This example demonstrates how to use the Rich Text Editor to execute the followi
 
 The application’s form contains the list of supported operations and editors that display the code and the result of these operations. A user can select an operation to view its code and result.
 
-image
-
 # Files to Look At
 
-* [CodeExamples](./CS/RichEditAPISample/CodeExamples) (VB: [CodeExamples](./VB/RichEditAPISample/CodeExamples))
+* [BookmarksAndHyperlinks](./CS/RichEditAPISample/CodeExamples/BookmarksAndHyperlinks.cs) (VB: [BookmarksAndHyperlinks](./VB/RichEditAPISample/CodeExamples/BookmarksAndHyperlinks.vb))
+* [Comments](./CS/RichEditAPISample/CodeExamples/Comments.cs) (VB: [Comments](./VB/RichEditAPISample/CodeExamples/Comments.vb))
+* [CustomXmlActions](./CS/RichEditAPISample/CodeExamples/CustomXmlActions.cs) (VB: [CustomXmlActions](./VB/RichEditAPISample/CodeExamples/CustomXmlActions.vb))
+* [DocumentProperties](./CS/RichEditAPISample/CodeExamples/DocumentProperties.cs) (VB: [DocumentProperties](./VB/RichEditAPISample/CodeExamples/DocumentProperties.vb))
+* [Export](./CS/RichEditAPISample/CodeExamples/Export.cs) (VB: [Export](./VB/RichEditAPISample/CodeExamples/Export.vb))
+* [Fields](./CS/RichEditAPISample/CodeExamples/Field.cs) (VB: [Fields](./VB/RichEditAPISample/CodeExamples/Field.vb))
+* [Formatting](./CS/RichEditAPISample/CodeExamples/Formatting.cs) (VB: [Formatting](./VB/RichEditAPISample/CodeExamples/Formatting.vb))
+* [FormFields](./CS/RichEditAPISample/CodeExamples/FormFields.cs) (VB: [FormFields](./VB/RichEditAPISample/CodeExamples/FormFields.vb))
+* [HeaderAndFooter](./CS/RichEditAPISample/CodeExamples/HeaderAndFooter.cs) (VB: [HeaderAndFooter](./VB/RichEditAPISample/CodeExamples/HeaderAndFooter.vb))
+* [Import](./CS/RichEditAPISample/CodeExamples/Import.cs) (VB: [Import](./VB/RichEditAPISample/CodeExamples/Import.vb))
+* [InlinePictures](./CS/RichEditAPISample/CodeExamples/InlinePictures.cs) (VB: [InlinePictures](./VB/RichEditAPISample/CodeExamples/InlinePictures.vb))
+* [List](./CS/RichEditAPISample/CodeExamples/List.cs) (VB: [List](./VB/RichEditAPISample/CodeExamples/List.vb))
+* [Notes](./CS/RichEditAPISample/CodeExamples/Notes.cs) (VB: [Notes](./VB/RichEditAPISample/CodeExamples/Notes.vb))
+* [PageLayout](./CS/RichEditAPISample/CodeExamples/PageLayout.cs) (VB: [PageLayout](./VB/RichEditAPISample/CodeExamples/PageLayout.vb))
+* [Range](./CS/RichEditAPISample/CodeExamples/Range.cs) (VB: [Range](./VB/RichEditAPISample/CodeExamples/Range.vb))
+* [SearchAndReplace](./CS/RichEditAPISample/CodeExamples/SearchAndReplace.cs) (VB: [SearchAndReplace](./VB/RichEditAPISample/CodeExamples/SearchAndReplace.vb))
+* [SelectionCollection](./CS/RichEditAPISample/CodeExamples/SelectionCollection.cs) (VB: [SelectionCollection](./VB/RichEditAPISample/CodeExamples/SelectionCollection.vb))
+* [Shapes](./CS/RichEditAPISample/CodeExamples/Shapes.cs) (VB: [Shapes](./VB/RichEditAPISample/CodeExamples/Shapes.vb))
+* [Styles](./CS/RichEditAPISample/CodeExamples/Styles.cs) (VB: [Styles](./VB/RichEditAPISample/CodeExamples/Styles.vb))
+* [Tables](./CS/RichEditAPISample/CodeExamples/Table.cs) (VB: [Tables](./VB/RichEditAPISample/CodeExamples/Table.vb))
+
+# Documentation
+
+* [RichEditControl Document](https://docs.devexpress.com/WindowsForms/6262/controls-and-libraries/rich-text-editor/rich-edit-control-document)
+* [Fields in Rich Text Editor](https://docs.devexpress.com/WindowsForms/11166/controls-and-libraries/rich-text-editor/fields)
+* [Rich Text Editor Examples](https://docs.devexpress.com/WindowsForms/5806/controls-and-libraries/rich-text-editor/examples)
