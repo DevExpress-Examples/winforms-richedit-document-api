@@ -53,3 +53,8 @@ The application’s form contains the list of supported operations and editors t
 * [RichEditControl Document](https://docs.devexpress.com/WindowsForms/6262/controls-and-libraries/rich-text-editor/rich-edit-control-document)
 * [Fields in Rich Text Editor](https://docs.devexpress.com/WindowsForms/11166/controls-and-libraries/rich-text-editor/fields)
 * [Rich Text Editor Examples](https://docs.devexpress.com/WindowsForms/5806/controls-and-libraries/rich-text-editor/examples)
+
+# More Examples
+
+* [Rich Text Editor for WPF - API Examples](https://github.com/DevExpress-Examples/wpf-richedit-document-api)
+* [Word Processing Document API – How to Process Word Documents in Code](https://github.com/DevExpress-Examples/word-document-api-examples)
