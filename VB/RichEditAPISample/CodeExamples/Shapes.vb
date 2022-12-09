@@ -12,7 +12,7 @@ Namespace RichEditAPISample.CodeExamples
         Private Shared Sub AddFloatingPicture(ByVal document As DevExpress.XtraRichEdit.API.Native.Document)
 #Region "#AddFloatingPicture"
             document.AppendText("Line One" & Global.Microsoft.VisualBasic.Constants.vbLf & "Line Two" & Global.Microsoft.VisualBasic.Constants.vbLf & "Line Three")
-            Dim myPicture As DevExpress.XtraRichEdit.API.Native.Shape = document.Shapes.InsertPicture(document.CreatePosition(15), System.Drawing.Image.FromFile("beverages.png"))
+            Dim myPicture As DevExpress.XtraRichEdit.API.Native.Shape = document.Shapes.InsertPicture(document.CreatePosition(15), DevExpress.XtraRichEdit.API.Native.DocumentImageSource.FromFile("beverages.png"))
             myPicture.HorizontalAlignment = DevExpress.XtraRichEdit.API.Native.ShapeHorizontalAlignment.Center
 #End Region  ' #AddFloatingPicture
         End Sub
@@ -65,7 +65,7 @@ Namespace RichEditAPISample.CodeExamples
 
         Private Shared Sub InsertRichTextInTextBox(ByVal document As DevExpress.XtraRichEdit.API.Native.Document)
 #Region "#InsertRichTextInTextBox"
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            document.LoadDocument("Documents//Grimm.docx")
             Dim myTextBox As DevExpress.XtraRichEdit.API.Native.Shape = document.Shapes(0)
             ' Allow text box resize to fit contents.
             myTextBox.ShapeFormat.TextBox.HeightRule = DevExpress.XtraRichEdit.API.Native.TextBoxSizeRule.Auto
@@ -75,7 +75,7 @@ Namespace RichEditAPISample.CodeExamples
             Dim newRange As DevExpress.XtraRichEdit.API.Native.DocumentRange = boxedDocument.AppendDocumentContent(document.Paragraphs(CInt((1))).Range)
             boxedDocument.Paragraphs.Insert(newRange.Start)
             ' Insert an image form the main document into the text box.
-            boxedDocument.Images.Insert(boxedDocument.CreatePosition(appendPosition), document.Images(CInt((0))).Image.NativeImage)
+            boxedDocument.Images.Insert(boxedDocument.CreatePosition(appendPosition), DevExpress.XtraRichEdit.API.Native.DocumentImageSource.FromImage(document.Images(CInt((0))).Image.NativeImage))
             ' Resize the image so that its size equals the image in the main document.
             boxedDocument.Images(CInt((0))).Size = document.Images(CInt((0))).Size
 #End Region  ' #InsertRichTextInTextBox

@@ -10,7 +10,7 @@
 Namespace RichEditAPISample.Properties
 
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.0.0.0")>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")>
     Friend NotInheritable Partial Class Settings
         Inherits Global.System.Configuration.ApplicationSettingsBase
 

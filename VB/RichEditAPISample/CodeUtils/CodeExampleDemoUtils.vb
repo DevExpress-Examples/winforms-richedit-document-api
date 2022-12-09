@@ -1,3 +1,4 @@
+Imports System
 Imports System.Collections.Generic
 Imports System.IO
 Imports System.Text
@@ -69,7 +70,7 @@ Namespace RichEditAPISample
 
         Public Function GetRelativeDirectoryPath(ByVal name As String) As String
             name = "Data\" & name
-            Dim path As String = System.Windows.Forms.Application.StartupPath
+            Dim path As String = Windows.Forms.Application.StartupPath
             Dim s As String = "\"
             For i As Integer = 0 To 10
                 If Directory.Exists(path & s & name) Then

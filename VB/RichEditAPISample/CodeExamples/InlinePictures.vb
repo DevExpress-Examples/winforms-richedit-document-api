@@ -18,7 +18,7 @@ Namespace RichEditAPISample.CodeExamples
 
         Private Shared Sub ImageCollection(ByVal document As DevExpress.XtraRichEdit.API.Native.Document)
 #Region "#ImageCollection"
-            document.LoadDocument("Documents//Grimm.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            document.LoadDocument("Documents//Grimm.docx")
             Dim images As DevExpress.XtraRichEdit.API.Native.ReadOnlyDocumentImageCollection = document.Images
             ' If the width of an image exceeds 50 millimeters, 
             ' the image is scaled proportionally to half its size.
@@ -33,7 +33,7 @@ Namespace RichEditAPISample.CodeExamples
 
         Private Shared Sub SaveImageToFile(ByVal document As DevExpress.XtraRichEdit.API.Native.Document)
 #Region "#SaveImageToFile"
-            document.LoadDocument("Documents//MovieRentals.docx", DevExpress.XtraRichEdit.DocumentFormat.OpenXml)
+            document.LoadDocument("Documents//MovieRentals.docx")
             Dim myRange As DevExpress.XtraRichEdit.API.Native.DocumentRange = document.CreateRange(0, 100)
             Dim images As DevExpress.XtraRichEdit.API.Native.ReadOnlyDocumentImageCollection = document.Images.[Get](myRange)
             If images.Count > 0 Then
