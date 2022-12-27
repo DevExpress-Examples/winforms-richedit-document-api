@@ -14,12 +14,8 @@ Imports DevExpress.Office.Utils
 
 Namespace RichEditAPISample
 
-    Public Partial Class Form1
-        Inherits Form
-
-        Private horizontalSplitContainerControl1 As SplitContainerControl
-
-        Private verticalSplitContainerControl1 As SplitContainerControl
+    Partial Public Class Form1
+        Inherits DevExpress.XtraEditors.XtraForm
 
 #Region "Controls"
         Private treeList1 As TreeList
@@ -33,230 +29,312 @@ Namespace RichEditAPISample
         Private xtraTabPage2 As XtraTabPage
 
         Public displayResultControl1 As DisplayResultControl
-
+        Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
+        Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
+        Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+        Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+        Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+        Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
+        Friend WithEvents codeExampleNameLbl As DevExpress.XtraLayout.SimpleLabelItem
+        Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
+        Friend WithEvents SplitterItem1 As DevExpress.XtraLayout.SplitterItem
+        Friend WithEvents SplitterItem2 As DevExpress.XtraLayout.SplitterItem
         Private richEditControlVB As RichEditControl
 
 #End Region
 #Region "InitializeComponent"
         Private Sub InitializeComponent()
-            horizontalSplitContainerControl1 = New SplitContainerControl()
-            checkEdit1 = New CheckEdit()
-            xtraTabControl1 = New XtraTabControl()
-            xtraTabPage1 = New XtraTabPage()
-            richEditControlCS = New RichEditControl()
-            xtraTabPage2 = New XtraTabPage()
-            richEditControlVB = New RichEditControl()
-            xtraTabPage3 = New XtraTabPage()
-            richEditControlCSClass = New RichEditControl()
-            xtraTabPage4 = New XtraTabPage()
-            richEditControlVBClass = New RichEditControl()
-            codeExampleNameLbl = New LabelControl()
-            displayResultControl1 = New DisplayResultControl()
-            verticalSplitContainerControl1 = New SplitContainerControl()
-            treeList1 = New TreeList()
-            CType(horizontalSplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            horizontalSplitContainerControl1.SuspendLayout()
-            CType(checkEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(xtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            xtraTabControl1.SuspendLayout()
-            xtraTabPage1.SuspendLayout()
-            xtraTabPage2.SuspendLayout()
-            xtraTabPage3.SuspendLayout()
-            xtraTabPage4.SuspendLayout()
-            CType(verticalSplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            verticalSplitContainerControl1.SuspendLayout()
-            CType(treeList1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.checkEdit1 = New DevExpress.XtraEditors.CheckEdit()
+            Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+            Me.treeList1 = New DevExpress.XtraTreeList.TreeList()
+            Me.displayResultControl1 = New RichEditAPISample.DisplayResultControl()
+            Me.xtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
+            Me.xtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
+            Me.richEditControlCS = New DevExpress.XtraRichEdit.RichEditControl()
+            Me.xtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
+            Me.richEditControlVB = New DevExpress.XtraRichEdit.RichEditControl()
+            Me.xtraTabPage3 = New DevExpress.XtraTab.XtraTabPage()
+            Me.richEditControlCSClass = New DevExpress.XtraRichEdit.RichEditControl()
+            Me.xtraTabPage4 = New DevExpress.XtraTab.XtraTabPage()
+            Me.richEditControlVBClass = New DevExpress.XtraRichEdit.RichEditControl()
+            Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
+            Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
+            Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
+            Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+            Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
+            Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
+            Me.codeExampleNameLbl = New DevExpress.XtraLayout.SimpleLabelItem()
+            Me.SplitterItem2 = New DevExpress.XtraLayout.SplitterItem()
+            Me.SplitterItem1 = New DevExpress.XtraLayout.SplitterItem()
+            CType(Me.checkEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.LayoutControl1.SuspendLayout()
+            CType(Me.treeList1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.xtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.xtraTabControl1.SuspendLayout()
+            Me.xtraTabPage1.SuspendLayout()
+            Me.xtraTabPage2.SuspendLayout()
+            Me.xtraTabPage3.SuspendLayout()
+            Me.xtraTabPage4.SuspendLayout()
+            CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.codeExampleNameLbl, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
-            ' 
-            ' horizontalSplitContainerControl1
-            ' 
-            horizontalSplitContainerControl1.Dock = DockStyle.Fill
-            horizontalSplitContainerControl1.FixedPanel = SplitFixedPanel.Panel2
-            horizontalSplitContainerControl1.Horizontal = False
-            horizontalSplitContainerControl1.Location = New System.Drawing.Point(0, 0)
-            horizontalSplitContainerControl1.Name = "horizontalSplitContainerControl1"
-            horizontalSplitContainerControl1.Panel1.Controls.Add(checkEdit1)
-            horizontalSplitContainerControl1.Panel1.Controls.Add(xtraTabControl1)
-            horizontalSplitContainerControl1.Panel1.Controls.Add(codeExampleNameLbl)
-            horizontalSplitContainerControl1.Panel1.Text = "Panel1"
-            horizontalSplitContainerControl1.Panel2.Controls.Add(displayResultControl1)
-            horizontalSplitContainerControl1.Panel2.Text = "Panel2"
-            horizontalSplitContainerControl1.Size = New System.Drawing.Size(982, 655)
-            horizontalSplitContainerControl1.SplitterPosition = 340
-            horizontalSplitContainerControl1.TabIndex = 2
-            horizontalSplitContainerControl1.Text = "splitContainerControl1"
-            ' 
-            ' checkEdit1
-            ' 
-            checkEdit1.Location = New System.Drawing.Point(714, 12)
-            checkEdit1.Name = "checkEdit1"
-            checkEdit1.Properties.Caption = "Indicate cursor position at window caption"
-            checkEdit1.Size = New System.Drawing.Size(237, 19)
-            checkEdit1.TabIndex = 12
-            AddHandler checkEdit1.CheckedChanged, New EventHandler(AddressOf checkEdit1_CheckedChanged)
-            ' 
-            ' xtraTabControl1
-            ' 
-            xtraTabControl1.AppearancePage.PageClient.BackColor = System.Drawing.Color.Transparent
-            xtraTabControl1.AppearancePage.PageClient.BackColor2 = System.Drawing.Color.Transparent
-            xtraTabControl1.AppearancePage.PageClient.BorderColor = System.Drawing.Color.Transparent
-            xtraTabControl1.AppearancePage.PageClient.Options.UseBackColor = True
-            xtraTabControl1.AppearancePage.PageClient.Options.UseBorderColor = True
-            xtraTabControl1.Dock = DockStyle.Fill
-            xtraTabControl1.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.True
-            xtraTabControl1.Location = New System.Drawing.Point(0, 44)
-            xtraTabControl1.Name = "xtraTabControl1"
-            xtraTabControl1.SelectedTabPage = xtraTabPage1
-            xtraTabControl1.Size = New System.Drawing.Size(982, 259)
-            xtraTabControl1.TabIndex = 11
-            xtraTabControl1.TabPages.AddRange(New XtraTabPage() {xtraTabPage1, xtraTabPage2, xtraTabPage3, xtraTabPage4})
-            ' 
-            ' xtraTabPage1
-            ' 
-            xtraTabPage1.Appearance.HeaderActive.Font = New System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold)
-            xtraTabPage1.Appearance.HeaderActive.Options.UseFont = True
-            xtraTabPage1.Controls.Add(richEditControlCS)
-            xtraTabPage1.Name = "xtraTabPage1"
-            xtraTabPage1.Size = New System.Drawing.Size(980, 234)
-            xtraTabPage1.Tag = "CS"
-            xtraTabPage1.Text = "CS"
-            ' 
-            ' richEditControlCS
-            ' 
-            richEditControlCS.ActiveViewType = RichEditViewType.Draft
-            richEditControlCS.Dock = DockStyle.Fill
-            richEditControlCS.Location = New System.Drawing.Point(0, 0)
-            richEditControlCS.Name = "richEditControlCS"
-            richEditControlCS.Options.HorizontalRuler.Visibility = RichEditRulerVisibility.Hidden
-            richEditControlCS.Size = New System.Drawing.Size(980, 234)
-            richEditControlCS.TabIndex = 14
-            ' 
-            ' xtraTabPage2
-            ' 
-            xtraTabPage2.Appearance.HeaderActive.Font = New System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold)
-            xtraTabPage2.Appearance.HeaderActive.Options.UseFont = True
-            xtraTabPage2.Controls.Add(richEditControlVB)
-            xtraTabPage2.Name = "xtraTabPage2"
-            xtraTabPage2.Size = New System.Drawing.Size(980, 234)
-            xtraTabPage2.Tag = "VB"
-            xtraTabPage2.Text = "VB"
-            ' 
-            ' richEditControlVB
-            ' 
-            richEditControlVB.ActiveViewType = RichEditViewType.Draft
-            richEditControlVB.Dock = DockStyle.Fill
-            richEditControlVB.Location = New System.Drawing.Point(0, 0)
-            richEditControlVB.Name = "richEditControlVB"
-            richEditControlVB.Options.HorizontalRuler.Visibility = RichEditRulerVisibility.Hidden
-            richEditControlVB.Size = New System.Drawing.Size(980, 234)
-            richEditControlVB.TabIndex = 15
-            ' 
-            ' xtraTabPage3
-            ' 
-            xtraTabPage3.Controls.Add(richEditControlCSClass)
-            xtraTabPage3.Name = "xtraTabPage3"
-            xtraTabPage3.Size = New System.Drawing.Size(980, 234)
-            xtraTabPage3.Tag = "CS"
-            xtraTabPage3.Text = "СS Helper"
-            ' 
-            ' richEditControlCSClass
-            ' 
-            richEditControlCSClass.ActiveViewType = RichEditViewType.Draft
-            richEditControlCSClass.Dock = DockStyle.Fill
-            richEditControlCSClass.Location = New System.Drawing.Point(0, 0)
-            richEditControlCSClass.Name = "richEditControlCSClass"
-            richEditControlCSClass.Options.HorizontalRuler.Visibility = RichEditRulerVisibility.Hidden
-            richEditControlCSClass.Size = New System.Drawing.Size(980, 234)
-            richEditControlCSClass.TabIndex = 0
-            ' 
-            ' xtraTabPage4
-            ' 
-            xtraTabPage4.Controls.Add(richEditControlVBClass)
-            xtraTabPage4.Name = "xtraTabPage4"
-            xtraTabPage4.Size = New System.Drawing.Size(980, 234)
-            xtraTabPage4.Tag = "VB"
-            xtraTabPage4.Text = "VB Helper"
-            ' 
-            ' richEditControlVBClass
-            ' 
-            richEditControlVBClass.ActiveViewType = RichEditViewType.Draft
-            richEditControlVBClass.Dock = DockStyle.Fill
-            richEditControlVBClass.Location = New System.Drawing.Point(0, 0)
-            richEditControlVBClass.Name = "richEditControlVBClass"
-            richEditControlVBClass.Options.HorizontalRuler.Visibility = RichEditRulerVisibility.Hidden
-            richEditControlVBClass.Size = New System.Drawing.Size(980, 234)
-            richEditControlVBClass.TabIndex = 1
-            ' 
-            ' codeExampleNameLbl
-            ' 
-            codeExampleNameLbl.Appearance.Font = New System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (CByte(204)))
-            codeExampleNameLbl.Dock = DockStyle.Top
-            codeExampleNameLbl.Location = New System.Drawing.Point(0, 0)
-            codeExampleNameLbl.Margin = New Padding(3, 5, 3, 5)
-            codeExampleNameLbl.Name = "codeExampleNameLbl"
-            codeExampleNameLbl.Padding = New Padding(0, 0, 0, 12)
-            codeExampleNameLbl.Size = New System.Drawing.Size(72, 44)
-            codeExampleNameLbl.TabIndex = 10
-            codeExampleNameLbl.Text = "label1"
-            ' 
-            ' displayResultControl1
-            ' 
-            displayResultControl1.Dock = DockStyle.Fill
-            displayResultControl1.Location = New System.Drawing.Point(0, 0)
-            displayResultControl1.Name = "displayResultControl1"
-            displayResultControl1.ReviewingPaneFormVisible = True
-            displayResultControl1.Size = New System.Drawing.Size(982, 340)
-            displayResultControl1.TabIndex = 0
-            ' 
-            ' verticalSplitContainerControl1
-            ' 
-            verticalSplitContainerControl1.Dock = DockStyle.Fill
-            verticalSplitContainerControl1.FixedPanel = SplitFixedPanel.Panel2
-            verticalSplitContainerControl1.Location = New System.Drawing.Point(0, 0)
-            verticalSplitContainerControl1.Name = "verticalSplitContainerControl1"
-            verticalSplitContainerControl1.Panel1.Controls.Add(horizontalSplitContainerControl1)
-            verticalSplitContainerControl1.Panel1.Text = "Panel1"
-            verticalSplitContainerControl1.Panel2.Controls.Add(treeList1)
-            verticalSplitContainerControl1.Panel2.Text = "Panel2"
-            verticalSplitContainerControl1.Size = New System.Drawing.Size(1212, 655)
-            verticalSplitContainerControl1.SplitterPosition = 218
-            verticalSplitContainerControl1.TabIndex = 0
-            verticalSplitContainerControl1.Text = "verticalSplitContainerControl1"
-            ' 
-            ' treeList1
-            ' 
-            treeList1.Appearance.FocusedCell.Font = New System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Underline)
-            treeList1.Appearance.FocusedCell.Options.UseFont = True
-            treeList1.Dock = DockStyle.Fill
-            treeList1.Location = New System.Drawing.Point(0, 0)
-            treeList1.Name = "treeList1"
-            treeList1.Size = New System.Drawing.Size(218, 655)
-            treeList1.TabIndex = 11
-            ' 
-            ' Form1
-            ' 
-            AutoScaleDimensions = New System.Drawing.SizeF(6F, 13F)
-            AutoScaleMode = AutoScaleMode.Font
-            ClientSize = New System.Drawing.Size(1212, 655)
-            Me.Controls.Add(verticalSplitContainerControl1)
-            Name = "Form1"
-            CType(horizontalSplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            horizontalSplitContainerControl1.ResumeLayout(False)
-            CType(checkEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(xtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            xtraTabControl1.ResumeLayout(False)
-            xtraTabPage1.ResumeLayout(False)
-            xtraTabPage2.ResumeLayout(False)
-            xtraTabPage3.ResumeLayout(False)
-            xtraTabPage4.ResumeLayout(False)
-            CType(verticalSplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            verticalSplitContainerControl1.ResumeLayout(False)
-            CType(treeList1, System.ComponentModel.ISupportInitialize).EndInit()
+            '
+            'checkEdit1
+            '
+            Me.checkEdit1.AutoSizeInLayoutControl = True
+            Me.checkEdit1.Location = New System.Drawing.Point(636, 18)
+            Me.checkEdit1.Name = "checkEdit1"
+            Me.checkEdit1.Properties.Caption = "Indicate cursor position at window caption"
+            Me.checkEdit1.Size = New System.Drawing.Size(225, 20)
+            Me.checkEdit1.StyleController = Me.LayoutControl1
+            Me.checkEdit1.TabIndex = 12
+            '
+            'LayoutControl1
+            '
+            Me.LayoutControl1.Controls.Add(Me.treeList1)
+            Me.LayoutControl1.Controls.Add(Me.displayResultControl1)
+            Me.LayoutControl1.Controls.Add(Me.xtraTabControl1)
+            Me.LayoutControl1.Controls.Add(Me.checkEdit1)
+            Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
+            Me.LayoutControl1.Name = "LayoutControl1"
+            Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(729, 364, 650, 400)
+            Me.LayoutControl1.Root = Me.Root
+            Me.LayoutControl1.Size = New System.Drawing.Size(1212, 655)
+            Me.LayoutControl1.TabIndex = 1
+            Me.LayoutControl1.Text = "LayoutControl1"
+            '
+            'treeList1
+            '
+            Me.treeList1.Appearance.FocusedCell.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Underline)
+            Me.treeList1.Appearance.FocusedCell.Options.UseFont = True
+            Me.treeList1.Location = New System.Drawing.Point(875, 12)
+            Me.treeList1.Name = "treeList1"
+            Me.treeList1.Size = New System.Drawing.Size(325, 631)
+            Me.treeList1.TabIndex = 11
+            '
+            'displayResultControl1
+            '
+            Me.displayResultControl1.Location = New System.Drawing.Point(12, 299)
+            Me.displayResultControl1.Name = "displayResultControl1"
+            Me.displayResultControl1.ReviewingPaneFormVisible = False
+            Me.displayResultControl1.Size = New System.Drawing.Size(849, 344)
+            Me.displayResultControl1.TabIndex = 0
+            '
+            'xtraTabControl1
+            '
+            Me.xtraTabControl1.AppearancePage.PageClient.BackColor = System.Drawing.Color.Transparent
+            Me.xtraTabControl1.AppearancePage.PageClient.BackColor2 = System.Drawing.Color.Transparent
+            Me.xtraTabControl1.AppearancePage.PageClient.BorderColor = System.Drawing.Color.Transparent
+            Me.xtraTabControl1.AppearancePage.PageClient.Options.UseBackColor = True
+            Me.xtraTabControl1.AppearancePage.PageClient.Options.UseBorderColor = True
+            Me.xtraTabControl1.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.[True]
+            Me.xtraTabControl1.Location = New System.Drawing.Point(12, 48)
+            Me.xtraTabControl1.Name = "xtraTabControl1"
+            Me.xtraTabControl1.SelectedTabPage = Me.xtraTabPage1
+            Me.xtraTabControl1.Size = New System.Drawing.Size(849, 237)
+            Me.xtraTabControl1.TabIndex = 11
+            Me.xtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.xtraTabPage1, Me.xtraTabPage2, Me.xtraTabPage3, Me.xtraTabPage4})
+            '
+            'xtraTabPage1
+            '
+            Me.xtraTabPage1.Appearance.HeaderActive.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+            Me.xtraTabPage1.Appearance.HeaderActive.Options.UseFont = True
+            Me.xtraTabPage1.Controls.Add(Me.richEditControlCS)
+            Me.xtraTabPage1.Name = "xtraTabPage1"
+            Me.xtraTabPage1.Size = New System.Drawing.Size(847, 212)
+            Me.xtraTabPage1.Tag = "CS"
+            Me.xtraTabPage1.Text = "CS"
+            '
+            'richEditControlCS
+            '
+            Me.richEditControlCS.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft
+            Me.richEditControlCS.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.richEditControlCS.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel
+            Me.richEditControlCS.Location = New System.Drawing.Point(0, 0)
+            Me.richEditControlCS.Name = "richEditControlCS"
+            Me.richEditControlCS.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden
+            Me.richEditControlCS.Size = New System.Drawing.Size(847, 212)
+            Me.richEditControlCS.TabIndex = 14
+            '
+            'xtraTabPage2
+            '
+            Me.xtraTabPage2.Appearance.HeaderActive.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+            Me.xtraTabPage2.Appearance.HeaderActive.Options.UseFont = True
+            Me.xtraTabPage2.Controls.Add(Me.richEditControlVB)
+            Me.xtraTabPage2.Name = "xtraTabPage2"
+            Me.xtraTabPage2.Size = New System.Drawing.Size(847, 212)
+            Me.xtraTabPage2.Tag = "VB"
+            Me.xtraTabPage2.Text = "VB"
+            '
+            'richEditControlVB
+            '
+            Me.richEditControlVB.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft
+            Me.richEditControlVB.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.richEditControlVB.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel
+            Me.richEditControlVB.Location = New System.Drawing.Point(0, 0)
+            Me.richEditControlVB.Name = "richEditControlVB"
+            Me.richEditControlVB.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden
+            Me.richEditControlVB.Size = New System.Drawing.Size(847, 212)
+            Me.richEditControlVB.TabIndex = 15
+            '
+            'xtraTabPage3
+            '
+            Me.xtraTabPage3.Controls.Add(Me.richEditControlCSClass)
+            Me.xtraTabPage3.Name = "xtraTabPage3"
+            Me.xtraTabPage3.Size = New System.Drawing.Size(847, 212)
+            Me.xtraTabPage3.Tag = "CS"
+            Me.xtraTabPage3.Text = "СS Helper"
+            '
+            'richEditControlCSClass
+            '
+            Me.richEditControlCSClass.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft
+            Me.richEditControlCSClass.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.richEditControlCSClass.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel
+            Me.richEditControlCSClass.Location = New System.Drawing.Point(0, 0)
+            Me.richEditControlCSClass.Name = "richEditControlCSClass"
+            Me.richEditControlCSClass.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden
+            Me.richEditControlCSClass.Size = New System.Drawing.Size(847, 212)
+            Me.richEditControlCSClass.TabIndex = 0
+            '
+            'xtraTabPage4
+            '
+            Me.xtraTabPage4.Controls.Add(Me.richEditControlVBClass)
+            Me.xtraTabPage4.Name = "xtraTabPage4"
+            Me.xtraTabPage4.Size = New System.Drawing.Size(847, 212)
+            Me.xtraTabPage4.Tag = "VB"
+            Me.xtraTabPage4.Text = "VB Helper"
+            '
+            'richEditControlVBClass
+            '
+            Me.richEditControlVBClass.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Draft
+            Me.richEditControlVBClass.Dock = System.Windows.Forms.DockStyle.Fill
+            Me.richEditControlVBClass.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel
+            Me.richEditControlVBClass.Location = New System.Drawing.Point(0, 0)
+            Me.richEditControlVBClass.Name = "richEditControlVBClass"
+            Me.richEditControlVBClass.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden
+            Me.richEditControlVBClass.Size = New System.Drawing.Size(847, 212)
+            Me.richEditControlVBClass.TabIndex = 1
+            '
+            'Root
+            '
+            Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+            Me.Root.GroupBordersVisible = False
+            Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5, Me.LayoutControlGroup1, Me.SplitterItem1})
+            Me.Root.Name = "Root"
+            Me.Root.Size = New System.Drawing.Size(1212, 655)
+            Me.Root.TextVisible = False
+            '
+            'LayoutControlItem5
+            '
+            Me.LayoutControlItem5.Control = Me.treeList1
+            Me.LayoutControlItem5.Location = New System.Drawing.Point(863, 0)
+            Me.LayoutControlItem5.Name = "LayoutControlItem5"
+            Me.LayoutControlItem5.Size = New System.Drawing.Size(329, 635)
+            Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
+            Me.LayoutControlItem5.TextVisible = False
+            '
+            'LayoutControlGroup1
+            '
+            Me.LayoutControlGroup1.GroupBordersVisible = False
+            Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.codeExampleNameLbl, Me.SplitterItem2})
+            Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+            Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
+            Me.LayoutControlGroup1.Size = New System.Drawing.Size(853, 635)
+            '
+            'LayoutControlItem2
+            '
+            Me.LayoutControlItem2.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center
+            Me.LayoutControlItem2.Control = Me.checkEdit1
+            Me.LayoutControlItem2.Location = New System.Drawing.Point(624, 0)
+            Me.LayoutControlItem2.Name = "LayoutControlItem2"
+            Me.LayoutControlItem2.Size = New System.Drawing.Size(229, 36)
+            Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
+            Me.LayoutControlItem2.TextVisible = False
+            '
+            'LayoutControlItem3
+            '
+            Me.LayoutControlItem3.Control = Me.xtraTabControl1
+            Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 36)
+            Me.LayoutControlItem3.Name = "LayoutControlItem3"
+            Me.LayoutControlItem3.Size = New System.Drawing.Size(853, 241)
+            Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+            Me.LayoutControlItem3.TextVisible = False
+            '
+            'LayoutControlItem4
+            '
+            Me.LayoutControlItem4.Control = Me.displayResultControl1
+            Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 287)
+            Me.LayoutControlItem4.Name = "LayoutControlItem4"
+            Me.LayoutControlItem4.Size = New System.Drawing.Size(853, 348)
+            Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
+            Me.LayoutControlItem4.TextVisible = False
+            '
+            'codeExampleNameLbl
+            '
+            Me.codeExampleNameLbl.AllowHotTrack = False
+            Me.codeExampleNameLbl.AppearanceItemCaption.Font = New System.Drawing.Font("Arial", 20.25!)
+            Me.codeExampleNameLbl.AppearanceItemCaption.Options.UseFont = True
+            Me.codeExampleNameLbl.Location = New System.Drawing.Point(0, 0)
+            Me.codeExampleNameLbl.MinSize = New System.Drawing.Size(100, 36)
+            Me.codeExampleNameLbl.Name = "codeExampleNameLbl"
+            Me.codeExampleNameLbl.Size = New System.Drawing.Size(624, 36)
+            Me.codeExampleNameLbl.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+            Me.codeExampleNameLbl.TextSize = New System.Drawing.Size(335, 32)
+            '
+            'SplitterItem2
+            '
+            Me.SplitterItem2.AllowHotTrack = True
+            Me.SplitterItem2.Location = New System.Drawing.Point(0, 277)
+            Me.SplitterItem2.Name = "SplitterItem2"
+            Me.SplitterItem2.Size = New System.Drawing.Size(853, 10)
+            '
+            'SplitterItem1
+            '
+            Me.SplitterItem1.AllowHotTrack = True
+            Me.SplitterItem1.Location = New System.Drawing.Point(853, 0)
+            Me.SplitterItem1.Name = "SplitterItem1"
+            Me.SplitterItem1.Size = New System.Drawing.Size(10, 635)
+            '
+            'Form1
+            '
+            Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+            Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.ClientSize = New System.Drawing.Size(1212, 655)
+            Me.Controls.Add(Me.LayoutControl1)
+            Me.Name = "Form1"
+            CType(Me.checkEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.LayoutControl1.ResumeLayout(False)
+            CType(Me.treeList1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.xtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.xtraTabControl1.ResumeLayout(False)
+            Me.xtraTabPage1.ResumeLayout(False)
+            Me.xtraTabPage2.ResumeLayout(False)
+            Me.xtraTabPage3.ResumeLayout(False)
+            Me.xtraTabPage4.ResumeLayout(False)
+            CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.codeExampleNameLbl, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
+
         End Sub
 
 #End Region
-        Private codeExampleNameLbl As LabelControl
 
         Private codeEditor As ExampleCodeEditor
 
@@ -264,7 +342,7 @@ Namespace RichEditAPISample
 
         Private examples As List(Of CodeExampleGroup)
 
-        Private checkEdit1 As CheckEdit
+        Private WithEvents checkEdit1 As CheckEdit
 
         Private xtraTabPage3 As XtraTabPage
 
@@ -313,7 +391,7 @@ Namespace RichEditAPISample
 
             Set(ByVal value As ExampleLanguage)
                 codeEditor.CurrentExampleLanguage = value
-            'xtraTabControl1.SelectedTabPageIndex = (value == ExampleLanguage.Csharp) ? 0 : 1;
+                'xtraTabControl1.SelectedTabPageIndex = (value == ExampleLanguage.Csharp) ? 0 : 1;
             End Set
         End Property
 
@@ -426,7 +504,7 @@ Namespace RichEditAPISample
             End If
         End Sub
 
-        Private Sub checkEdit1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
+        Private Sub checkEdit1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles checkEdit1.CheckedChanged
             If checkEdit1.Checked Then
                 AddHandler richEditControl.MouseMove, AddressOf richEditControl_MouseMove
             Else

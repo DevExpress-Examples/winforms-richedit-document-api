@@ -30,11 +30,12 @@ Namespace RichEditAPISample
 
         Protected Friend Function CompileAndRun(ByVal linesOfCode As String(), ByVal evaluationParameter As Object) As Boolean
             Dim CompilerParams As System.CodeDom.Compiler.CompilerParameters = New System.CodeDom.Compiler.CompilerParameters()
+            CompilerParams.CompilerOptions = "/import:System.Linq"
             CompilerParams.GenerateInMemory = True
             CompilerParams.TreatWarningsAsErrors = False
             CompilerParams.GenerateExecutable = False
             Dim referencesSystem As String() = New String() {"System.dll", "System.Windows.Forms.dll", "System.Data.dll", "System.Xml.dll", "System.Core.dll", "System.Drawing.dll"}
-            Dim referencesDX As String() = New String() {AssemblyInfo.SRAssemblyData, AssemblyInfo.SRAssemblyDataDesktop, Me.GetModuleAssembly(), AssemblyInfo.SRAssemblyOfficeCore, AssemblyInfo.SRAssemblyPrintingCore, AssemblyInfo.SRAssemblyPrinting, AssemblyInfo.SRAssemblyDocs, AssemblyInfo.SRAssemblyUtils, AssemblyInfo.SRAssemblyRichEdit, AssemblyInfo.SRAssemblyEditors}
+            Dim referencesDX As String() = New String() {AssemblyInfo.SRAssemblyData, AssemblyInfo.SRAssemblyDataDesktop, Me.GetModuleAssembly(), AssemblyInfo.SRAssemblyOfficeCore, AssemblyInfo.SRAssemblyPrintingCore, AssemblyInfo.SRAssemblyPrinting, AssemblyInfo.SRAssemblyDocs, AssemblyInfo.SRAssemblyUtils, AssemblyInfo.SRAssemblyRichEdit, AssemblyInfo.SRAssemblyEditors, AssemblyInfo.SRAssemblyDrawing}
             Dim references As String() = New String(referencesSystem.Length + referencesDX.Length - 1) {}
             For referenceIndex As Integer = 0 To referencesSystem.Length - 1
                 references(referenceIndex) = referencesSystem(referenceIndex)

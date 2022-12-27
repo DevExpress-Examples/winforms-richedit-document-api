@@ -67,14 +67,14 @@ Namespace RichEditAPISample.CodeExamples
             ' Change the color of empty space between cells.
             table.TableBackgroundColor = System.Drawing.Color.Violet
             'Change cell background color.
-            table.ForEachCell(New DevExpress.XtraRichEdit.API.Native.TableCellProcessorDelegate(AddressOf RichEditAPISample.CodeExamples.TableActions.TableHelper.ChangeCellColor))
-            table.ForEachCell(New DevExpress.XtraRichEdit.API.Native.TableCellProcessorDelegate(AddressOf RichEditAPISample.CodeExamples.TableActions.TableHelper.ChangeCellBorderColor))
+            table.ForEachCell(New DevExpress.XtraRichEdit.API.Native.TableCellProcessorDelegate(AddressOf TableHelper.ChangeCellColor))
+            table.ForEachCell(New DevExpress.XtraRichEdit.API.Native.TableCellProcessorDelegate(AddressOf TableHelper.ChangeCellBorderColor))
             table.EndUpdate()
 #End Region  ' #ChangeTableColor
         End Sub
 
 #Region "#@ChangeTableColor"
-        Private Class TableHelper
+        Friend Class TableHelper
 
             Public Shared Sub ChangeCellColor(ByVal cell As DevExpress.XtraRichEdit.API.Native.TableCell, ByVal i As Integer, ByVal j As Integer)
                 cell.BackgroundColor = System.Drawing.Color.Yellow
@@ -161,13 +161,13 @@ Namespace RichEditAPISample.CodeExamples
             Dim table As DevExpress.XtraRichEdit.API.Native.Table = document.Tables.Create(document.Range.Start, 3, 10)
             table.BeginUpdate()
             'Change cell background color and vertical alignment in the third column.
-            table.ForEachRow(New DevExpress.XtraRichEdit.API.Native.TableRowProcessorDelegate(AddressOf RichEditAPISample.CodeExamples.TableActions.ChangeColumnAppearanceHelper.ChangeColumnColor))
+            table.ForEachRow(New DevExpress.XtraRichEdit.API.Native.TableRowProcessorDelegate(AddressOf ChangeColumnAppearanceHelper.ChangeColumnColor))
             table.EndUpdate()
 #End Region  ' #ChangeColumnAppearance
         End Sub
 
 #Region "#@ChangeColumnAppearance"
-        Private Class ChangeColumnAppearanceHelper
+        Friend Class ChangeColumnAppearanceHelper
 
             Public Shared Sub ChangeColumnColor(ByVal row As DevExpress.XtraRichEdit.API.Native.TableRow, ByVal rowIndex As Integer)
                 row(CInt((2))).BackgroundColor = System.Drawing.Color.LightCyan
@@ -180,13 +180,13 @@ Namespace RichEditAPISample.CodeExamples
 #Region "#UseTableCellProcessor"
             Dim table As DevExpress.XtraRichEdit.API.Native.Table = document.Tables.Create(document.Range.Start, 8, 8)
             table.BeginUpdate()
-            table.ForEachCell(New DevExpress.XtraRichEdit.API.Native.TableCellProcessorDelegate(AddressOf RichEditAPISample.CodeExamples.TableActions.UseTableCellProcessorHelper.MakeMultiplicationCell))
+            table.ForEachCell(New DevExpress.XtraRichEdit.API.Native.TableCellProcessorDelegate(AddressOf UseTableCellProcessorHelper.MakeMultiplicationCell))
             table.EndUpdate()
 #End Region  ' #UseTableCellProcessor
         End Sub
 
 #Region "#@UseTableCellProcessor"
-        Private Class UseTableCellProcessorHelper
+        Friend Class UseTableCellProcessorHelper
 
             Public Shared Sub MakeMultiplicationCell(ByVal cell As DevExpress.XtraRichEdit.API.Native.TableCell, ByVal i As Integer, ByVal j As Integer)
                 Dim doc As DevExpress.XtraRichEdit.API.Native.SubDocument = cell.Range.BeginUpdateDocument()

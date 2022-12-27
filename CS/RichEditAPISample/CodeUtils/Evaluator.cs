@@ -49,7 +49,8 @@ namespace RichEditAPISample
                 AssemblyInfo.SRAssemblyDocs,
                 AssemblyInfo.SRAssemblyUtils,
                 AssemblyInfo.SRAssemblyRichEdit,
-                AssemblyInfo.SRAssemblyEditors
+                AssemblyInfo.SRAssemblyEditors,
+                AssemblyInfo.SRAssemblyDrawing
             };
             string[] references = new string[referencesSystem.Length + referencesDX.Length];
 

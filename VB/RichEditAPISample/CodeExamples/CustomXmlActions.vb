@@ -21,16 +21,7 @@ Namespace RichEditAPISample.CodeExamples
             elem.InnerText = "Stephen Edwards"
             xmlItem.CustomXmlPartDocument.AppendChild(elem)
             ' Use a string to specify the content for a custom XML part.
-            Dim xmlString As String = "<?xml version=""1.0"" encoding=""UTF-8""?>
-                            <Employees>
-                                <FirstName>Stephen</FirstName>
-                                <LastName>Edwards</LastName>
-                                <Address>4726 - 11th Ave. N.E.</Address>
-                                <City>Seattle</City>
-                                <Region>WA</Region>
-                                <PostalCode>98122</PostalCode>
-                                <Country>USA</Country>
-                            </Employees>"
+            Dim xmlString As String = "<?xml version=""1.0"" encoding=""UTF-8""?><Employees><FirstName>Stephen</FirstName><LastName>Edwards</LastName><Address>4726 - 11th Ave. N.E.</Address><City>Seattle</City><Region>WA</Region><PostalCode>98122</PostalCode><Country>USA</Country></Employees>"
             document.CustomXmlParts.Insert(1, xmlString)
             ' Add a custom XML part from a file.
             Dim xmlDoc As System.Xml.XmlDocument = New System.Xml.XmlDocument()
@@ -63,18 +54,10 @@ Namespace RichEditAPISample.CodeExamples
 #Region "#RemoveCustomXmlPart"
             document.AppendText("This document contains custom XML parts.")
             ' Add the first custom XML part.
-            Dim xmlString1 As String = "<?xml version=""1.0"" encoding=""UTF-8""?>
-                            <Employees>
-                                <FirstName>Stephen</FirstName>
-                                <LastName>Edwards</LastName>
-                            </Employees>"
+            Dim xmlString1 As String = "<?xml version=""1.0"" encoding=""UTF-8""?><Employees><FirstName>Stephen</FirstName><LastName>Edwards</LastName></Employees>"
             Dim xmlItem1 = document.CustomXmlParts.Add(xmlString1)
             ' Add the second custom XML part.
-            Dim xmlString2 As String = "<?xml version=""1.0"" encoding=""UTF-8""?>
-                            <Employees>
-                                <FirstName>Andrew</FirstName>
-                                <LastName>Fuller</LastName>
-                            </Employees>"
+            Dim xmlString2 As String = "<?xml version=""1.0"" encoding=""UTF-8""?><Employees><FirstName>Andrew</FirstName><LastName>Fuller</LastName></Employees>"
             Dim xmlItem2 = document.CustomXmlParts.Add(xmlString2)
             ' Remove the first item from the collection.
             document.CustomXmlParts.Remove(xmlItem1)

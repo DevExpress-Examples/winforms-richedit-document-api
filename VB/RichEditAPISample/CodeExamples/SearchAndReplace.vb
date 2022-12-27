@@ -22,8 +22,8 @@ Namespace RichEditAPISample.CodeExamples
             document.BeginUpdate()
             ' Insert an ordered list of non-repetitive words in the beginning of the document.
             Dim distinctWords = sixLetterWords.Cast(Of String)().Distinct().OrderByDescending(Function(s) s)
-            For Each s In distinctWords
-                document.InsertText(document.Range.Start, s.ToString() & System.Environment.NewLine)
+            For Each str As String In distinctWords
+                document.InsertText(document.Range.Start, str.ToString() & System.Environment.NewLine)
             Next
 
             document.EndUpdate()
