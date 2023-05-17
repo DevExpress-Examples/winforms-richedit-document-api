@@ -41,7 +41,7 @@ Namespace RichEditAPISample.CodeExamples
         Private Shared Sub PrintLayout(ByVal document As DevExpress.XtraRichEdit.API.Native.Document)
 #Region "#PrintLayout"
             document.Unit = DevExpress.Office.DocumentUnit.Inch
-            document.Sections(CInt((0))).Page.PaperKind = System.Drawing.Printing.PaperKind.A6
+            document.Sections(CInt((0))).Page.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A6
             document.Sections(CInt((0))).Page.Landscape = True
             document.Sections(CInt((0))).Margins.Left = 2.0F
 #End Region  ' #PrintLayout

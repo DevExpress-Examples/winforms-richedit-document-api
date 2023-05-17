@@ -45,7 +45,7 @@ namespace RichEditAPISample.CodeExamples
         {
             #region #PrintLayout
             document.Unit = DevExpress.Office.DocumentUnit.Inch;
-            document.Sections[0].Page.PaperKind = System.Drawing.Printing.PaperKind.A6;
+            document.Sections[0].Page.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A6;
             document.Sections[0].Page.Landscape = true;
             document.Sections[0].Margins.Left = 2.0f;
             #endregion #PrintLayout
