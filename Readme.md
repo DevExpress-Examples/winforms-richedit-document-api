@@ -20,7 +20,7 @@ This example demonstrates how to use the Rich Text Editor to execute the followi
 - Protect and unprotect a document
 - Create character, paragraph, and linked styles
 - Import formatted text to a document
-- Add checkbox form fields to a document
+- Add, edit, and remove content controls
 - Embed arbitrary XML data (custom XML parts) in a document
 
 The application’s form contains the list of supported operations and editors that display the code and the result of these operations. A user can select an operation to view its code and result.
