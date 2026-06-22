@@ -70,7 +70,7 @@ namespace RichEditAPISample.CodeExamples
             DocumentRange range = myFooter.InsertText(myFooter.CreatePosition(0), " PAGE NUMBER ");
             Field fld = myFooter.Fields.Create(range.End, "PAGE \\* ARABICDASH");
             myFooter.Fields.Update();
-            firstSection.EndUpdateHeader(myFooter);
+            firstSection.EndUpdateFooter(myFooter);
             // Display the footer of the HeaderFooterType.First type on the first page.
             firstSection.DifferentFirstPage = true;
             #endregion #ModifyFooter
