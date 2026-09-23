@@ -1,11 +1,6 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Text
-Imports System.Threading.Tasks
-
 Namespace RichEditAPISample
-    #Region "RichEditExampleEvaluatorByTimer"
+
+'#Region "RichEditExampleEvaluatorByTimer"
     Public Class RichEditExampleEvaluatorByTimer
         Inherits ExampleEvaluatorByTimer
 
@@ -14,11 +9,9 @@ Namespace RichEditAPISample
         End Sub
 
         Protected Overrides Function GetExampleCodeEvaluator(ByVal language As ExampleLanguage) As ExampleCodeEvaluator
-            If language = ExampleLanguage.VB Then
-                Return New RichEditVbExampleCodeEvaluator()
-            End If
+            If language = ExampleLanguage.VB Then Return New RichEditVbExampleCodeEvaluator()
             Return New RichEditCSExampleCodeEvaluator()
         End Function
     End Class
-    #End Region
+'#End Region
 End Namespace

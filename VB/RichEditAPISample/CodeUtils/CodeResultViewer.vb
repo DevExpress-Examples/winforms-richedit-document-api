@@ -1,25 +1,21 @@
-﻿Imports System
 Imports System.CodeDom.Compiler
-Imports System.IO
-Imports System.Reflection
-Imports System.Windows.Forms
 Imports Microsoft.CSharp
-Imports System.Globalization
-Imports DevExpress.Spreadsheet
 
 Namespace RichEditAPISample
+
     Public MustInherit Class RichEditExampleCodeEvaluator
         Inherits ExampleCodeEvaluator
-
 
         Protected Overrides Function GetModuleAssembly() As String
             Return AssemblyInfo.SRAssemblyRichEditCore
         End Function
+
         Protected Overrides Function GetExampleClassName() As String
             Return "RichEditCodeResultViewer.ExampleItem"
         End Function
     End Class
-    #Region "RichEditCSExampleCodeEvaluator"
+
+'#Region "RichEditCSExampleCodeEvaluator"
     Public Class RichEditCSExampleCodeEvaluator
         Inherits RichEditExampleCodeEvaluator
 
@@ -27,23 +23,25 @@ Namespace RichEditAPISample
             Return New CSharpCodeProvider()
         End Function
 
-        Private Const codeStart_Renamed As String = "using System;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit.API.Native;" & ControlChars.CrLf & "using System.Drawing;" & ControlChars.CrLf & "using System.Windows.Forms;" & ControlChars.CrLf & "using DevExpress.Utils;" & ControlChars.CrLf & "using System.IO;" & ControlChars.CrLf & "using System.Diagnostics;" & ControlChars.CrLf & "using System.Xml;" & ControlChars.CrLf & "using System.Data;" & ControlChars.CrLf & "using System.Collections.Generic;" & ControlChars.CrLf & "using System.Globalization;" & ControlChars.CrLf & "namespace RichEditCodeResultViewer { " & ControlChars.CrLf & "public class ExampleItem { " & ControlChars.CrLf & "        public static void Process(Document doc) { " & ControlChars.CrLf & ControlChars.CrLf
+        Const codeStartField As String = "using System;" & Microsoft.VisualBasic.Constants.vbCrLf & "using DevExpress.XtraRichEdit;" & Microsoft.VisualBasic.Constants.vbCrLf & "using DevExpress.XtraRichEdit.API.Native;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Drawing;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Windows.Forms;" & Microsoft.VisualBasic.Constants.vbCrLf & "using DevExpress.Utils;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.IO;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Diagnostics;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Xml;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Data;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Collections.Generic;" & Microsoft.VisualBasic.Constants.vbCrLf & "using System.Globalization;" & Microsoft.VisualBasic.Constants.vbCrLf & "namespace RichEditCodeResultViewer { " & Microsoft.VisualBasic.Constants.vbCrLf & "public class ExampleItem { " & Microsoft.VisualBasic.Constants.vbCrLf & "        public static void Process(Document doc) { " & Microsoft.VisualBasic.Constants.vbCrLf & Microsoft.VisualBasic.Constants.vbCrLf
 
+        Const codeEndField As String = "       " & Microsoft.VisualBasic.Constants.vbCrLf & " }" & Microsoft.VisualBasic.Constants.vbCrLf & "    }" & Microsoft.VisualBasic.Constants.vbCrLf & "}" & Microsoft.VisualBasic.Constants.vbCrLf
 
-        Private Const codeEnd_Renamed As String = "       " & ControlChars.CrLf & " }" & ControlChars.CrLf & "    }" & ControlChars.CrLf & "}" & ControlChars.CrLf
-        Protected Overrides ReadOnly Property CodeStart() As String
+        Protected Overrides ReadOnly Property CodeStart As String
             Get
-                Return codeStart_Renamed
+                Return codeStartField
             End Get
         End Property
-        Protected Overrides ReadOnly Property CodeEnd() As String
+
+        Protected Overrides ReadOnly Property CodeEnd As String
             Get
-                Return codeEnd_Renamed
+                Return codeEndField
             End Get
         End Property
     End Class
-    #End Region
-    #Region "RichEditVbExampleCodeEvaluator"
+
+'#End Region
+'#Region "RichEditVbExampleCodeEvaluator"
     Public Class RichEditVbExampleCodeEvaluator
         Inherits RichEditExampleCodeEvaluator
 
@@ -51,21 +49,21 @@ Namespace RichEditAPISample
             Return New Microsoft.VisualBasic.VBCodeProvider()
         End Function
 
-        Private Const codeStart_Renamed As String = "Imports Microsoft.VisualBasic" & ControlChars.CrLf & "Imports System" & ControlChars.CrLf & "using DevExpress.XtraRichEdit;" & ControlChars.CrLf & "using DevExpress.XtraRichEdit.API.Native;" & ControlChars.CrLf & "Imports System.Drawing" & ControlChars.CrLf & "Imports System.Windows.Forms" & ControlChars.CrLf & "Imports DevExpress.Utils" & ControlChars.CrLf & "Imports System.IO" & ControlChars.CrLf & "Imports System.Diagnostics" & ControlChars.CrLf & "Imports System.Xml" & ControlChars.CrLf & "Imports System.Data" & ControlChars.CrLf & "Imports System.Collections.Generic" & ControlChars.CrLf & "Imports System.Globalization" & ControlChars.CrLf & "Namespace RichEditCodeResultViewer" & ControlChars.CrLf & "	Public Class ExampleItem" & ControlChars.CrLf & "		Public Shared Sub Process(ByVal doc As Document)" & ControlChars.CrLf & ControlChars.CrLf
+        Const codeStartField As String = "Imports Microsoft.VisualBasic" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System" & Microsoft.VisualBasic.Constants.vbCrLf & "using DevExpress.XtraRichEdit;" & Microsoft.VisualBasic.Constants.vbCrLf & "using DevExpress.XtraRichEdit.API.Native;" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Drawing" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Windows.Forms" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports DevExpress.Utils" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.IO" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Diagnostics" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Xml" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Data" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Collections.Generic" & Microsoft.VisualBasic.Constants.vbCrLf & "Imports System.Globalization" & Microsoft.VisualBasic.Constants.vbCrLf & "Namespace RichEditCodeResultViewer" & Microsoft.VisualBasic.Constants.vbCrLf & Microsoft.VisualBasic.Constants.vbTab & "Public Class ExampleItem" & Microsoft.VisualBasic.Constants.vbCrLf & Microsoft.VisualBasic.Constants.vbTab & Microsoft.VisualBasic.Constants.vbTab & "Public Shared Sub Process(ByVal doc As Document)" & Microsoft.VisualBasic.Constants.vbCrLf & Microsoft.VisualBasic.Constants.vbCrLf
 
+        Const codeEndField As String = Microsoft.VisualBasic.Constants.vbCrLf & Microsoft.VisualBasic.Constants.vbTab & Microsoft.VisualBasic.Constants.vbTab & "End Sub" & Microsoft.VisualBasic.Constants.vbCrLf & Microsoft.VisualBasic.Constants.vbTab & "End Class" & Microsoft.VisualBasic.Constants.vbCrLf & "End Namespace" & Microsoft.VisualBasic.Constants.vbCrLf
 
-        Private Const codeEnd_Renamed As String = ControlChars.CrLf & "		End Sub" & ControlChars.CrLf & "	End Class" & ControlChars.CrLf & "End Namespace" & ControlChars.CrLf
-
-        Protected Overrides ReadOnly Property CodeStart() As String
+        Protected Overrides ReadOnly Property CodeStart As String
             Get
-                Return codeStart_Renamed
+                Return codeStartField
             End Get
         End Property
-        Protected Overrides ReadOnly Property CodeEnd() As String
+
+        Protected Overrides ReadOnly Property CodeEnd As String
             Get
-                Return codeEnd_Renamed
+                Return codeEndField
             End Get
         End Property
     End Class
-    #End Region
+'#End Region
 End Namespace
